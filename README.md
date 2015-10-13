@@ -1,2 +1,2 @@
 # myown
-my stuff
+just a site
