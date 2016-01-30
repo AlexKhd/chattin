@@ -1,0 +1,297 @@
+// Place all the styles related to the Dashboard controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('../assets/glyphicons-halflings-regular.eot');
+  src: url('../assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+       url('../assets/glyphicons-halflings-regular.woff') format('woff'),
+       url('../assets/glyphicons-halflings-regular.ttf') format('truetype'),
+       url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+// commom @import "font-awesome-sprockets";@import "bootstrap-sprockets";
+//@import "bootstrap";*/
+
+body {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  background-color: gray;
+	font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0 0 35px;
+	padding: 0;
+	text-transform: uppercase;
+}
+
+/* Header */
+
+.intro {
+  //outline: 1px solid #cc0000;
+  display: table;
+  width: 100%;
+  height: 100%;
+  padding: 100px 0;
+  text-align: center;
+  color: #fff;
+  background: #000 image-url('bg_tl1.jpg') no-repeat bottom center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.intro .intro-body {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.intro .intro-body .brand-headind {
+  font-size: 40px;
+}
+
+.intro .intro-body .intro-text {
+  font-size: 18px;
+}
+
+.alert {
+  position: absolute;
+  top: 75px;
+  width: 100%;
+}
+
+#chat-section {
+  padding-top: 60px;
+}
+
+.transparency5 {
+  transparency: 0.5;
+}
+
+.well {
+  margin-bottom: 10px;
+}
+
+#chat-main {
+  position: relative;
+  padding-top: 80px;
+  //clear: both;
+}
+
+#chatctn {
+  color: #000;
+  font-family: Arial, sans-serif;
+}
+
+#message {
+  width: 70%;
+}
+
+#send {
+  margin-left: 20px;
+}
+
+.contact {
+    //display: block;
+}
+
+#contact {
+    //visibility: hidden;
+    color: #000;
+}
+
+#btn_send_to_author {
+    //visibility: hidden;
+}
+
+/* Nav (Pages)    display: none; */
+
+
+.navbar-custom {
+  background-color: #000; // #8c99a4;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  margin-bottom: 0;
+  text-transform: uppercase;
+//	-webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
+//  -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
+//  transition: background .5s ease-in-out, padding .5s ease-in-out;
+}
+
+.navbar-custom .navbar-brand {
+  font-weight: 700;
+}
+
+.navbar-custom .navbar-brand:focus {
+  outline: 0 none;
+}
+
+.navbar-custom .navbar-brand .navbar-toggle {
+  color: #fff;
+  font-size: 16px;
+  padding: 4px 6px;
+}
+
+.navbar-custom.top-nav-collapse {
+  padding: 0;
+  border-bottom: 1px solid rgba(255,255,255,.3);
+  background: #000;
+}
+
+.navbar-custom a {
+  color: #fff;
+}
+
+.navbar-custom .nav li a {
+  -webkit-transition: background .3s ease-in-out;
+  -moz-transition: background .3s ease-in-out;
+  transition: background .3s ease-in-out;
+}
+
+.navbar-custom .nav li a:hover {
+  outline: 0;
+  color: rgba(255,255,255,.8);
+  background-color: transparent;
+}
+
+@media (min-width: 768px) {
+  .navbar-custom {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+  border-bottom: 0 none;
+  letter-spacing: 1px;
+  padding: 20px 0;
+  transition: background .5s ease-in-out, padding .5s ease-in-out 0s;
+  }
+}
+
+#sidebar {
+  outline: 1px solid #cccc00;
+  float: left;
+  width: 25%;
+  height: 200px;
+  margin-left: 3px;
+}
+
+.mainPicture {
+  //position: absolute;
+  outline: 1px solid #cccc00;
+  background: #414141 image-url('beach760.png') no-repeat;
+  //background-size: cover;
+  box-shadow: 0 0 50px 11px #000 inset;
+  height: 403px;
+  float: left;
+  width: 74%;
+  margin-left: 7px;
+  //top: 0;
+  //left: 0;
+}
+
+#europe {
+  position: fixed;
+  background: image-url('europe.png');//no-repeat;
+  left: 50%;
+  width: 200px;
+  height: 60px;
+  top: 300px;
+}
+
+#asia {
+  position: fixed;
+  background: image-url('asia.png');
+  left: 72%;
+  width: 150px;
+  height: 40px;
+  top: 250px;
+}
+
+#samerica {
+  position: fixed;
+  background: image-url('samerica.png');//no-repeat;
+  left: 35%;
+  width: 150px;
+  height: 40px;
+  top: 230px;
+}
+#pages2 {
+	clear: both;
+	height: 43px;
+	margin: 0 auto;
+  background: #2C7997 image-url('page_rev.png');
+  //position: relative;
+  //text-align: center;
+  //padding-top: 10px;
+  //h4 {color: black;}
+}
+
+// surik
+
+#surik {
+  padding-left: 70px;
+}
+
+// sidebar w/surik
+
+// sidebar
+
+/*#sidebar {
+  width: 200px;
+  float: left;
+  height: 300px;
+  margin-top: 50px;
+  margin-right: 20px;
+  margin-left: 15px;
+}*/
+
+#sidebar_s {
+  //z-index: 1;
+  width: 198px;
+  position: absolute;
+}
+
+#sidebar_g {
+  //z-index: 2;
+  position: relative;
+  //background: #99CCFF;
+  background-image: linear-gradient(#35A0C3, #54B7DC);
+}
+
+footer {
+  //outline: 1px solid #cccc00;
+  padding: 50px 0;
+  height: 120px;
+  color: #ccc;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer .btn {
+  margin: 5px 0 15px;
+}
+
+.loginForm {
+  margin: 160px auto 0;
+  width: 280px;
+  color: gray;
+  background-color: blue;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+table.table-striped tr.found td {
+  background-color: blue;
+}
+
+table {
+  color: #000;
+}

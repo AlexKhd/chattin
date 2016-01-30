@@ -1,0 +1,23 @@
+<footer>
+	<div class="container text-center">
+		<p>Photo gallery coming soon..</p>
+		<p></p>
+		<p>Copyright &copy; YAP 2015</p>
+		<% if controller_name != "chats" %>
+    	<div id="email_author" class="collapse"> 
+			<div class= "contact_form">
+    			<%= form_tag contact_send_path do %>
+
+        		<%= text_field_tag :message_contact, params[:message_contact], id:
+	        	"contact", placeholder: "type your message here", size: 30, onchange: 'this.form.submit' %>
+        		<%= submit_tag "Send", class: "btn-primary", id: "btn_send_to_author" %>
+    			<% end %>
+			</div>
+    	</div>    	
+		<button class="btn btn-info" data-toggle="collapse" data-target="#email_author">
+			email to author
+    	</button>
+    	<% end %>
+        <%= render 'layouts/google_analytics' %>
+	</div>
+</footer>

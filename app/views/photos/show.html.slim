@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @photo.title
+p
+  strong Description:
+  = @photo.description
+p
+  strong File:
+  = @photo.file
+
+= link_to 'Edit', edit_photo_path(@photo)
+'|
+= link_to 'Back', photos_path
