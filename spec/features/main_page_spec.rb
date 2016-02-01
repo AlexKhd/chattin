@@ -5,8 +5,8 @@ feature 'Main page' do
   scenario 'structure check' do
 
    visit '/'
-   expect(page).to have_selector('h1', text: 'Yet another portal')
-   expect(page).to have_link 'Chat'
 
+   expect(page).to have_selector('h1', text: 'YET ANOTHER PORTAL')
+   expect(page).to have_link 'Chat'
   end
 end
