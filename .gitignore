@@ -16,12 +16,12 @@
 /log/*
 !/log/.keep
 /tmp
+/spec/support/screenshots/*
 
 # Ignore application configuration
 /config/database.yml
 /config/application.yml
-/config/initializers/secret_token.rb
-/config/secrets.yml
+#/config/secrets.yml
 
 # Ignore testing temps
 /coverage
