@@ -122,6 +122,7 @@ GEM
     mime-types (2.99)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
+    mixpanel-ruby (2.2.0)
     multi_json (1.11.2)
     mysql2 (0.4.2)
     nenv (0.2.0)
@@ -257,6 +258,7 @@ DEPENDENCIES
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails
+  mixpanel-ruby
   mysql2
   poltergeist
   rails (= 4.2.5)

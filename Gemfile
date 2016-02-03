@@ -13,6 +13,7 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'font-awesome-sass', '~> 4.3.0'
 gem 'will_paginate'
+gem 'mixpanel-ruby'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

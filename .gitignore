@@ -21,7 +21,7 @@
 # Ignore application configuration
 /config/database.yml
 /config/application.yml
-#/config/secrets.yml
+/config/secrets.yml
 
 # Ignore testing temps
 /coverage
