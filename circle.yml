@@ -8,4 +8,5 @@ database:
     - bundle exec rake db:create db:schema:load
 test:
   override:
-    - bundle exec rake spec: { timeout: 400 }
+    - bundle exec rake spec:unit: { timeout: 30 }
+    - bundle exec rake spec:integration: { timeout: 30 }
