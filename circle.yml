@@ -4,6 +4,7 @@ machine:
 database:
   override:
     - cp config/database.yml.ci config/database.yml
+    - cp config/secrets.yml.ci config/secrets.yml
     - bundle exec rake db:create db:schema:load
 test:
   override:
