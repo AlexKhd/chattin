@@ -21,3 +21,21 @@
 
 en:
   hello: "Hello world"
+  Yet_another_portal: Yet another portal
+  Home: Home
+  Gallery: Gallery
+  Login: Login
+  Chat: Chat
+  email_to_author: email to author
+  devise:
+    failure:
+      unauthenticated: 'You need to sign in or sign up before continuing.'
+      unconfirmed: 'You have to confirm your account before continuing.'
+      locked: 'Your account is locked.'
+      invalid: 'Invalid email or password.'
+      invalid_token: 'Invalid authentication token.'
+      timeout: 'Your session expired, please sign in again to continue.'
+      inactive: 'Your account was not activated yet.'
+    sessions:
+      signed_in: ""
+      signed_out: ""

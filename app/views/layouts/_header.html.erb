@@ -14,11 +14,11 @@
 					<a href="#page-top"></a>
 				</li>
 				<li>
-					<%= link_to 'Home', root_path, class: "page-scroll" %>
+					<%= link_to t(:Home), root_path, class: "page-scroll" %>
 				</li>
 				<% if Rails.env.development? %>
 				<li>
-					<%= link_to 'Gallery', photo_index_path, class: "page-scroll" %>
+					<%= link_to t(:Gallery), photo_index_path, class: "page-scroll" %>
 				</li>
 				<li>
 					<%= link_to 'Stat', statistic_index_path, class: "page-scroll" %>
@@ -26,16 +26,16 @@
 									<% if user_signed_in? %>
 				<span>Hi, <% current_user.email %></span>
 				<li>
-					<%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "page-scroll" %>
+					<%= link_to t(:Logout), destroy_user_session_path, method: :delete, class: "page-scroll" %>
 				</li>
 				<% else %>
 				<li>
-					<%= link_to 'Login', new_user_session_path, class: "page-scroll" %>
+					<%= link_to t(:Login), new_user_session_path, class: "page-scroll" %>
 				</li>
 				<% end %>
 				<% end %>
 				<li>
-					<%= link_to 'Chat', root_path, class: "page-scroll" %>
+					<%= link_to t(:Chat), root_path, class: "page-scroll" %>
 				</li>
 			</ul>
 		</div>

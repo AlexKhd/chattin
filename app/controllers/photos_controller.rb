@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :set_locale
   # GET /photos
   # GET /photos.json
   def index

@@ -14,6 +14,7 @@ gem 'bootstrap-sass', '~> 3.3.3'
 gem 'font-awesome-sass', '~> 4.3.0'
 gem 'will_paginate'
 gem 'mixpanel-ruby'
+gem 'rails-i18n', '~> 4.0.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -1,5 +1,6 @@
 class ChatsController < ApplicationController
   before_action :set_chat, only: [:show, :edit, :update, :destroy]
+  skip_before_action :set_locale
 
   # GET /chats
   # GET /chats.json
