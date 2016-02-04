@@ -9,4 +9,4 @@ database:
 test:
   override:
     - bundle exec rake spec:unit: { timeout: 30 }
-    - bundle exec rake spec:integration: { timeout: 30 }
+    - bundle exec rake spec:feature: { timeout: 30 }
