@@ -1,0 +1,195 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#posts {
+  p {
+    //margin: 13px 0 13px;
+  }
+  left: 40px;
+  position: relative;
+  top: 100px;
+  width: 95%;
+}
+
+.navbar-brand {
+  a {
+    color: #125688;
+  }
+}
+
+.navbar-default {
+  background-color: #fff;
+  height: 54px;
+  .navbar-nav li a {
+    color: #125688;
+  }
+}
+
+.navbar-container {
+  width: 640px;
+  margin: 0 auto;
+}
+
+#posts-sidebar {
+  //padding: 60px 15px;
+}
+
+.posts-wrapper {
+  //margin: 0 auto;
+  //max-width: 642px;
+  //width: 100%;
+}
+
+.post {
+  background-color: #444A4F;
+  border-color: #0B4376;
+  border-style: solid;
+  border-radius: 3px;
+  border-width: 1px;
+  margin-bottom: 40px;
+  box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.3);
+}
+
+.image {
+  color: white;
+}
+
+.post img {
+  background-color: #444A4F;
+  width: 100%;
+}
+
+.caption {
+  padding: 24px 24px;
+  font-size: 15px;
+  line-height: 18px;
+
+}
+
+.form-wrapper {
+  width: 60%;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 40px;
+  border: 1px solid #eeefef;
+  border-radius: 3px;
+}
+
+.edit-links {
+  margin-top: 10px;
+  height: 35px;
+}
+
+.pagination {
+  .previous_page { background:#7777ff; color:white }
+  .previous_page.disabled { background: white; color: #777 }
+  .current { background: yellow }
+  .next_page { background: #7777ff; color: white }
+  .next_page.disabled { background: white; color: #777 }
+  margin: 0 0 20px 0;
+}
+
+.counter {
+  display: inline;
+  right: 0px;
+  position: relative;
+  float: right;
+  height: 40px;
+  //background: #2C7997 image-url('btn_gray.png');
+  background:    #acafb1;
+  background:    -webkit-linear-gradient(#acafb1, #0c0c0c);
+  background:    linear-gradient(#acafb1, #0c0c0c);
+  border-radius: 5px;
+  color:         #fff;
+  display:       inline-block;
+  width:         60px;
+  height:        25px;
+  font:          normal 700 9px/25px "Calibri", sans-serif;
+  text-align:    center;
+  text-shadow:   1px 1px 0 #000;
+  margin: 1px;
+}
+
+figcaption {
+  display: inline;
+}
+
+.counter_main {
+  display: inline;
+}
+
+.counter.green {
+  // http://dabuttonfactory.com/
+  background:    #6aa84f;
+  background:    -webkit-linear-gradient(#6aa84f, #0c0c0c);
+  background:    linear-gradient(#6aa84f, #0c0c0c);
+  border:        1px solid #fff;
+  border-radius: 5px;
+  color:         #fff;
+  display:       inline-block;
+  width:         60px;
+  height:        25px;
+  font:          normal 700 24px/25px "Calibri", sans-serif;
+  text-align:    center;
+  text-shadow:   1px 1px 0 #000;
+}
+
+.counter.gold {
+  background:    #dadb26;
+  background:    -webkit-linear-gradient(#c09632, #dadb26 50%, #c09632);
+  background:    linear-gradient(#c09632, #dadb26 50%, #c09632);
+  border:        1px solid #fff;
+  border-radius: 5px;
+  color:         #fff;
+  display:       inline-block;
+  width:         60px;
+  height:        25px;
+  font:          normal 700 24px/25px "Calibri", sans-serif;
+  text-align:    center;
+  text-shadow:   1px 1px 0 #000;
+}
+
+.btn_plus {
+  background:    #3d85c6;
+  background:    -webkit-linear-gradient(#3d85c6, #073763);
+  background:    linear-gradient(#3d85c6, #073763);
+  border-radius: 3px;
+  color:         #fff;
+  display:       inline-block;
+  width:         25px;
+  height:        25px;
+  text-align:    center;
+  text-shadow:   1px 1px 0 #000;
+  display: inline;
+  float: right;
+  border: none;
+  margin: 1px 1px 1px;
+}
+
+.btn_minus {
+  background:    #3d85c6;
+  background:    -webkit-linear-gradient(#3d85c6, #073763);
+  background:    linear-gradient(#3d85c6, #073763);
+  border-radius: 3px;
+  color:         #fff;
+  display:       inline-block;
+  width:         25px;
+  height:        25px;
+  text-align:    center;
+  text-shadow:   1px 1px 0 #000;
+  display: inline;
+  float: right;
+  border: none;
+  margin: 1px 1px 1px 1px;
+}
+
+#top-images {
+  background-color: #444A4F;
+  border-color: #0B4376;
+  border-style: solid;
+  border-radius: 3px;
+  border-width: 1px;
+  //width: 7%;
+  color: white;
+  text-align: center;
+}

@@ -1,0 +1,12 @@
+.collapse.navbar-collapse.navbar-right.navbar-main-collapse
+  ul.nav.navbar-nav
+    li.hidden
+      a href="#page-top"
+    li= link_to t(:Home), root_path, class: "page-scroll"
+    li= link_to t(:Gallery), posts_path, class: "page-scroll"
+    li= link_to t(:Chat), root_path, class: "page-scroll"
+    - if user_signed_in?
+      span Hi, = current_user.email
+      li= link_to t(:Logout), destroy_user_session_path, method: :delete, class: "page-scroll"
+    -else
+      li= link_to t(:Login), new_user_session_path, class: "page-scroll"

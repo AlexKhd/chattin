@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users
-  get 'statistic/index'
+  get 'slideshow', to: 'posts#slider'
 
   resources :chats
   resources :photos
+  resources :posts
   get 'photo/index'
 
   get 'dashboard/index'

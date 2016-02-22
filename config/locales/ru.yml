@@ -1,15 +1,27 @@
 ru:
-  Yet_another_portal: сайт +
+  Yet_another_portal: Yet another portal
   Home: Главная
   Gallery: Галерея
+  SlideShow: Слайдшоу
   Login: Войти
+  Logout: Выйти
   Chat: Чат
   email_to_author: обратная связь
+  Posts: Фотографии
+  new_post: Добавить фото
+  delete_post: Удалить фото
+  Up: Вверх
+  log_in: Вход
+  sign_up: Регистрация
+  email: Ваш email
+  password: Пароль
+  password_confirmation: Подтверждение пароля
+  remember_me: Запомнить меня
   devise:
     failure:
       unauthenticated: 'You need to sign in or sign up before continuing.'
       unconfirmed: 'You have to confirm your account before continuing.'
-      locked: 'Your account is locked.'
+      locked: 'Ваша учетная запись заблокирована.'
       invalid: 'Неверное имя пользователя или пароль.'
       invalid_token: 'Invalid authentication token.'
       timeout: 'Your session expired, please sign in again to continue.'
@@ -17,3 +29,6 @@ ru:
     sessions:
       signed_in: ""
       signed_out: ""
+  will_paginate:
+    previous_label: Предыдущая
+    next_label: Следующая

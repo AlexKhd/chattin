@@ -17,4 +17,7 @@ module ApplicationHelper
     { success: "alert-success", error: "alert-danger", alert: "alert-warning", notice: "alert-info" }[flash_type.to_sym] || flash_type.to_s
   end
 
+  def is_admin?
+    current_user.email == 'khodos.alexey@gmail.com' if @current_user
+  end
 end

@@ -17,9 +17,11 @@
 body {
   width: 100%;
   height: 100%;
-  color: #fff;
+  color: #333;
   background-color: gray;
 	font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  line-height: 18px;
 }
 
 html {
@@ -31,6 +33,37 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0 0 35px;
 	padding: 0;
 	text-transform: uppercase;
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a {
+  color: #000;
+
+  &:visited {
+    color: #666;
+  }
+
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
 }
 
 /* Header */
@@ -109,13 +142,6 @@ h1, h2, h3, h4, h5, h6 {
     color: #000;
 }
 
-#btn_send_to_author {
-    //visibility: hidden;
-}
-
-/* Nav (Pages)    display: none; */
-
-
 .navbar-custom {
   background-color: #000; // #8c99a4;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -168,7 +194,7 @@ h1, h2, h3, h4, h5, h6 {
   background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
   border-bottom: 0 none;
   letter-spacing: 1px;
-  padding: 20px 0;
+  padding: 20px 0 0 0;
   transition: background .5s ease-in-out, padding .5s ease-in-out 0s;
   }
 }
@@ -181,55 +207,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-left: 3px;
 }
 
-.mainPicture {
-  //position: absolute;
-  outline: 1px solid #cccc00;
-  background: #414141 image-url('beach760.png') no-repeat;
-  //background-size: cover;
-  box-shadow: 0 0 50px 11px #000 inset;
-  height: 403px;
-  float: left;
-  width: 74%;
-  margin-left: 7px;
-  //top: 0;
-  //left: 0;
-}
-
-#europe {
-  position: fixed;
-  background: image-url('europe.png');//no-repeat;
-  left: 50%;
-  width: 200px;
-  height: 60px;
-  top: 300px;
-}
-
-#asia {
-  position: fixed;
-  background: image-url('asia.png');
-  left: 72%;
-  width: 150px;
-  height: 40px;
-  top: 250px;
-}
-
-#samerica {
-  position: fixed;
-  background: image-url('samerica.png');//no-repeat;
-  left: 35%;
-  width: 150px;
-  height: 40px;
-  top: 230px;
-}
 #pages2 {
 	clear: both;
 	height: 43px;
 	margin: 0 auto;
   background: #2C7997 image-url('page_rev.png');
-  //position: relative;
-  //text-align: center;
-  //padding-top: 10px;
-  //h4 {color: black;}
 }
 
 // surik
@@ -252,7 +234,6 @@ h1, h2, h3, h4, h5, h6 {
 }*/
 
 #sidebar_s {
-  //z-index: 1;
   width: 198px;
   position: absolute;
 }
@@ -294,4 +275,40 @@ table.table-striped tr.found td {
 
 table {
   color: #000;
+}
+
+// notices
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
 }

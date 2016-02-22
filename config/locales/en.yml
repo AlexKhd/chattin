@@ -24,9 +24,21 @@ en:
   Yet_another_portal: Yet another portal
   Home: Home
   Gallery: Gallery
+  SlideShow: Slide Show
   Login: Login
+  Logout: Logout
   Chat: Chat
   email_to_author: email to author
+  Posts: Posts
+  new_post: New Post
+  delete_post: Delete Post
+  Up: Up
+  log_in: Log in
+  sign_up: Sign Up
+  email: Email
+  password: Password
+  password_confirmation: Password confirmation
+  remember_me: Remember me
   devise:
     failure:
       unauthenticated: 'You need to sign in or sign up before continuing.'
@@ -39,3 +51,6 @@ en:
     sessions:
       signed_in: ""
       signed_out: ""
+  will_paginate:
+    previous_label: Previous
+    next_label: Next

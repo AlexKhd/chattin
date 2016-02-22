@@ -11,10 +11,21 @@ class ApplicationController < ActionController::Base
     logger.debug "* Locale set to '#{I18n.locale}'"
   end
 
+  alias_method :devise_current_user, :current_user
+
+  def current_user
+    if params[:user_id].blank?
+      devise_current_user
+    else
+      User.find(params[:user_id])
+    end
+  end
+
   private
 
   def extract_locale_from_accept_language_header
     http_accept_language = request.env['HTTP_ACCEPT_LANGUAGE']
     http_accept_language ? http_accept_language.scan(/^[a-z]{2}/).first : :en
   end
+
 end

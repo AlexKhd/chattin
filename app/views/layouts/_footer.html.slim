@@ -1,0 +1,12 @@
+footer
+	.container.text-center
+		p
+		p Copyright &copy; YAP 2015
+		- if controller_name != "chats"
+    	#email_author.collapse
+			  .contact_form
+    			- form_tag contact_send_path do
+        		= text_field_tag :message_contact, params[:message_contact], id: "contact", placeholder: "type your message here", size: 30, onchange: 'this.form.submit'
+        		= submit_tag "Send", class: "btn-primary", id: "btn_send_to_author"
+
+    	button class="btn btn-info" data-toggle="collapse" data-target="#email_author" = t(:email_to_author)

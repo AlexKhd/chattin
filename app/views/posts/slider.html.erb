@@ -1,0 +1,27 @@
+<div id="sl_wrapper">
+
+		<div id="content">
+
+			<div id="slider" class="span">
+				<% i = 0; @posts.each do |post| %>
+		  		<div class="img <%= "image-#{i+=1}" %>">
+		  		<%= image_tag post.image.url(:medium) %>
+	      	</div>
+				<% end %>
+				<div class="nav previous"></div>
+				<div class="nav next"></div>
+				<div class="previews">
+					<div class="preview previous-image"></div>
+					<div class="preview next-image"></div>
+				</div>
+			</div>
+			<div id="dots">
+				<ul></ul>
+			</div>
+
+			<div class="features">
+
+				<p> </p>
+			</div>
+		</div> <!-- content -->
+	</div> <!-- wrapper -->

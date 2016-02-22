@@ -1,0 +1,7 @@
+#posts.row
+  #posts-sidebar.col-md-2
+    p= link_to t(:new_post), new_post_path, class: "btn btn-success", type: "button"
+    p= link_to t(:SlideShow), slideshow_path, class: "page-scroll btn btn-success", type: "button"
+  = render 'posts'
+  #top-images.col-md-3
+    span Best Photos

@@ -8,49 +8,6 @@
 				<i class="fa fa-circle"></i> <span class="light">Y.A.P.</span>
 			</a>
 		</div>
-		<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-			<ul class="nav navbar-nav">
-				<li class="hidden">
-					<a href="#page-top"></a>
-				</li>
-				<li>
-					<%= link_to t(:Home), root_path, class: "page-scroll" %>
-				</li>
-				<% if Rails.env.development? %>
-				<li>
-					<%= link_to t(:Gallery), photo_index_path, class: "page-scroll" %>
-				</li>
-				<li>
-					<%= link_to 'Stat', statistic_index_path, class: "page-scroll" %>
-				</li>
-									<% if user_signed_in? %>
-				<span>Hi, <% current_user.email %></span>
-				<li>
-					<%= link_to t(:Logout), destroy_user_session_path, method: :delete, class: "page-scroll" %>
-				</li>
-				<% else %>
-				<li>
-					<%= link_to t(:Login), new_user_session_path, class: "page-scroll" %>
-				</li>
-				<% end %>
-				<% end %>
-				<li>
-					<%= link_to t(:Chat), root_path, class: "page-scroll" %>
-				</li>
-			</ul>
-		</div>
+    <%= render 'layouts/main_menu' %>
 	</div>
 </nav>
-
-
-            <% if session[:user_id] == 'fake' %>
-              <li class="<%=is_active('/login')%>"><%= link_to 'Login', login_path, id: "page4" %></li>
-              <li class="<%=is_active("/demo")%>"><%= link_to 'Demo', demo_path, id: "page3" %></li>
-              <li class="<%=is_active('/users/new')%>"><%= link_to 'SignUp', new_user_path, id: "page5" %></li>
-              <li class="<%=is_active('/gallery/index' || '/gallery/heimat')%>"><%= link_to 'Blog', gallery_index_path, id: "page1" %></li>
-              <li class="<%=is_active('/works')%>"><%= link_to 'Tasks', works_path, id: "page6" %></li>
-              <li class="<%=is_active('/profile')%>"><%= link_to 'Profile', profile_path, id: "page7" %></li>
-              <li class="<%=is_active('/users')%>"><%= link_to 'Users', users_path, id: "page8" %></li>
-              <li class="<%=is_active('')%>"><%= link_to 'Logout', logout_path, method: :delete, id: "page9" %></li>
-        <a href="#" id="pull">Menu</a>
-            <% end %>
