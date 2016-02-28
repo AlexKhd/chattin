@@ -1,6 +1,6 @@
 class DashboardController < ApplicationController
   require 'mixpanel-ruby'
-  after_action :identify_mixpanel_id, :only => [:index]
+  after_action :identify_mixpanel_id, only: [:index]
 
   def index
   end

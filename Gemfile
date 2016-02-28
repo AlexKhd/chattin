@@ -19,9 +19,8 @@ gem 'mixpanel-ruby'
 gem 'rails-i18n', '~> 4.0.0'
 gem 'paperclip', '~> 4.3'
 gem 'simple_form'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'websocket-rails'
+gem 'faye-websocket', '0.10.0'
 
 group :development, :test do
   gem 'byebug'
@@ -33,6 +32,7 @@ end
 group :development do
    gem 'guard-rspec', require: false
    gem 'web-console', '~> 3.0'
+   gem "capistrano", "~> 3.4"
 end
 
 group :test do

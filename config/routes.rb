@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users
+  get 'chat', to: 'chats#chat'
   get 'slideshow', to: 'posts#slider'
 
   resources :chats

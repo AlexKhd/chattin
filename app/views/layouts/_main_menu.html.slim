@@ -4,7 +4,7 @@
       a href="#page-top"
     li= link_to t(:Home), root_path, class: "page-scroll"
     li= link_to t(:Gallery), posts_path, class: "page-scroll"
-    li= link_to t(:Chat), root_path, class: "page-scroll"
+    li= link_to t(:Chat), chat_path, class: "page-scroll"
     - if user_signed_in?
       span Hi, = current_user.email
       li= link_to t(:Logout), destroy_user_session_path, method: :delete, class: "page-scroll"

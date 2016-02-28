@@ -114,15 +114,11 @@ div {
   margin-bottom: 10px;
 }
 
-#chat-main {
-  position: relative;
-  padding-top: 80px;
-  //clear: both;
-}
-
 #chatctn {
   color: #000;
   font-family: Arial, sans-serif;
+  top: 100px;
+  position: relative;
 }
 
 #message {

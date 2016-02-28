@@ -38,6 +38,9 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+  # for websocket-rails
+  config.middleware.delete Rack::Lock
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
   Paperclip.options[:command_path] = "/usr/bin/"

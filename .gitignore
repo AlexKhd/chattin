@@ -31,3 +31,8 @@ capybara-*.html
 
 *.DS_Store
 .byebug_history
+
+/Procfile
+/config/deploy/
+/shared/
+/public/system/
