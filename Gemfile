@@ -33,6 +33,9 @@ group :development do
    gem 'guard-rspec', require: false
    gem 'web-console', '~> 3.0'
    gem "capistrano", "~> 3.4"
+   gem 'capistrano-rails'
+   gem 'capistrano-rbenv', '~> 2.0', require: false
+   gem 'capistrano-bundler'
 end
 
 group :test do
