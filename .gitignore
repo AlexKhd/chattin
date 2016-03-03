@@ -37,3 +37,4 @@ capybara-*.html
 /shared/
 /public/system/
 /public/assets/
+/lib/capistrano/tasks/
