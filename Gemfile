@@ -21,6 +21,7 @@ gem 'paperclip', '~> 4.3'
 gem 'simple_form'
 gem 'websocket-rails'
 gem 'faye-websocket', '0.10.0'
+gem 'passenger', '>= 5.0.26', require: 'phusion_passenger/rack_handler'
 
 group :development, :test do
   gem 'byebug'
