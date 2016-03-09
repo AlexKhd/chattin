@@ -8,7 +8,7 @@ require 'capybara/poltergeist'
 
 ActiveRecord::Migration.maintain_test_schema!
 Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, { debug: true, js_errors: true, timeout: 30 })
+  Capybara::Poltergeist::Driver.new(app, { debug: true, js_errors: false, timeout: 30 })
 end
 
 Capybara.default_driver = :poltergeist
