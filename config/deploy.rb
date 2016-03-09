@@ -38,7 +38,7 @@ namespace :deploy do
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       execute "passenger-config restart-app --ignore-app-not-running /var/www/chatting_production/current"
-      within "#{current_path}" do
+      within "/var/www/chatting_production/current" do
         with rails_env: :production do
           execute "RAILS_ENV=production rake websocket_rails:start_server"
         end
