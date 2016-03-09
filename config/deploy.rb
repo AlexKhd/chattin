@@ -25,7 +25,7 @@ set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/
 
 # Default value for linked_dirs is []
 # set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
-set :linked_dirs, fetch(:linked_dirs, []).push('log', 'vendor/bundle', 'public/system')
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'vendor/bundle', 'public/system', 'tmp/pids')
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -38,11 +38,18 @@ namespace :deploy do
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       execute "passenger-config restart-app --ignore-app-not-running /var/www/chatting_production/current"
-      within "/var/www/chatting_production/current" do
-        with rails_env: :production do
-          execute "RAILS_ENV=production rake websocket_rails:start_server"
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          if test(" [ -f #{shared_path}/pids/websocket_rails.pid ]")
+            execute :rake,
+                    'websocket_rails:stop_server',
+                    'websocket_rails:start_server'
+          else
+            execute :rake, 'websocket_rails:start_server'
+          end
         end
       end
+
     end
   end
 
