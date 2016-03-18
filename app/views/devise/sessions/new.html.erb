@@ -1,13 +1,20 @@
+<div class=container>
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 <h2><%= t(:log_in) %></h2>
+<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <%= link_to "#{t(:sign_in_with)} #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: 'btn btn-info', id: 'btn_via_facebook' %><br />
+  <% end -%>
+<% end -%>
   <div class="field">
-    <%= f.label t(:email) %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%- f.label t(:email) %><br />
+    <%= f.email_field :email, autofocus: true, type: "email", class: "form-control", placeholder: t(:email) %>
   </div>
 
   <div class="field">
-    <%= f.label t(:password) %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%- f.label t(:password) %><br />
+    <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: t(:password) %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
@@ -18,8 +25,10 @@
   <% end -%>
 
   <div class="actions">
-    <%= f.submit t(:log_in) %>
+    <%= f.submit t(:log_in), class: 'btn btn-info' %>
   </div>
-<% end %>
+
 
 <%= render "devise/shared/links" %>
+<% end %>
+</div>

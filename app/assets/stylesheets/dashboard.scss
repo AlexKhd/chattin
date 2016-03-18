@@ -55,8 +55,8 @@ a {
   }
 
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: #eee;
+    background-color: transparent;
   }
 }
 
@@ -97,9 +97,10 @@ div {
 }
 
 .alert {
-  position: absolute;
+  position: relative;
   top: 75px;
-  width: 100%;
+  width: 95%;
+  margin: 0 auto;
 }
 
 #chat-section {
@@ -210,37 +211,6 @@ div {
   background: #2C7997 image-url('page_rev.png');
 }
 
-// surik
-
-#surik {
-  padding-left: 70px;
-}
-
-// sidebar w/surik
-
-// sidebar
-
-/*#sidebar {
-  width: 200px;
-  float: left;
-  height: 300px;
-  margin-top: 50px;
-  margin-right: 20px;
-  margin-left: 15px;
-}*/
-
-#sidebar_s {
-  width: 198px;
-  position: absolute;
-}
-
-#sidebar_g {
-  //z-index: 2;
-  position: relative;
-  //background: #99CCFF;
-  background-image: linear-gradient(#35A0C3, #54B7DC);
-}
-
 footer {
   //outline: 1px solid #cccc00;
   padding: 50px 0;
@@ -307,4 +277,23 @@ table {
     font-size: 12px;
     list-style: square;
   }
+}
+
+.fb-like {
+    overflow: hidden;
+    width: 54px;
+}
+
+#avatar {
+  display: inline;
+}
+
+#avatar li {
+  display: inline;
+}
+
+#avatar img {
+  display: inline;
+  border: 1px solid #414141;
+  border-radius: 15px;
 }

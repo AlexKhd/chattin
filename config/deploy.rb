@@ -40,7 +40,7 @@ namespace :deploy do
       execute "passenger-config restart-app --ignore-app-not-running /var/www/chatting_production/current"
       within release_path do
         with rails_env: fetch(:rails_env) do
-          if test(" [ -f #{shared_path}/pids/websocket_rails.pid ]")
+          if test(" [ -f #{shared_path}/tmp/pids/websocket_rails.pid ]")
             execute :rake,
                     'websocket_rails:stop_server',
                     'websocket_rails:start_server'

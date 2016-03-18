@@ -13,6 +13,7 @@ ru:
   Up: Вверх
   log_in: Вход
   sign_up: Регистрация
+  sign_in_with: Войти через
   email: Ваш email
   password: Пароль
   password_confirmation: Подтверждение пароля
@@ -29,6 +30,9 @@ ru:
     sessions:
       signed_in: ""
       signed_out: ""
+    omniauth_callbacks:
+      failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
+      success: "Вход через %{kind} успешен."
   forgot_your_password?: "Забыли пароль?"
   will_paginate:
     previous_label: Предыдущая

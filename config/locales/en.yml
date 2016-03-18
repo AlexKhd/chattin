@@ -35,6 +35,7 @@ en:
   Up: Up
   log_in: Log in
   sign_up: Sign Up
+  sign_in_with: Sign in with
   email: Email
   password: Password
   password_confirmation: Password confirmation
@@ -51,6 +52,9 @@ en:
     sessions:
       signed_in: ""
       signed_out: ""
+    omniauth_callbacks:
+      failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
+      success: "Successfully authenticated from %{kind} account."
   forgot_your_password?: "Forgot your password?"
   will_paginate:
     previous_label: Previous

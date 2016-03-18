@@ -1,7 +1,14 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 #new_user {
   padding: 20px;
-  margin-top: 60px;
+  margin: 100px auto;
+  max-width: 330px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 16px;
+}
+
+#btn_via_facebook {
+	display: block;
+	width: 177px;
+	padding: 5px 0;
+	font: 14px Helvetica,Arial,sans-serif;
 }

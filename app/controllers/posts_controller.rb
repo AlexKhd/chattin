@@ -1,19 +1,41 @@
 class PostsController < ApplicationController
 
   before_action :set_post, only: [:destroy]
-  before_action :authenticate_user!, only: [:new]
+  before_action :authenticate_user!, except: [:index]
 
   def index
-    @posts = Post.all
+    @paginate = Post.paginate(page: params[:page], per_page: 5).order(created_at: :desc)
+    if current_user
+      @posts = Post.all if current_user.admin? || current_user.family?
+      @posts = @paginate.where(family: 0).all if current_user.user?
+    else
+		  @posts = @paginate.where(family: 0).all
+    end
   end
 
   def new
     @post = Post.new
   end
 
+  def upvote
+    @post = Post.find(params[:post_id])
+    @post.upvote
+    redirect_to :back
+  end
+
+  def downvote
+    @post = Post.find(params[:post_id])
+    @post.downvote
+    redirect_to :back
+  end
+
   def create
-    @post = Post.create(post_params)
-    redirect_to posts_path
+    @post = current_user.posts.build(post_params)
+		if @post.save
+			redirect_to posts_path
+    else
+      redirect_to new_post_path
+		end
   end
 
   def destroy
@@ -29,7 +51,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image, :caption)
+    params.require(:post).permit(:image, :caption, :user_id, :family)
   end
 
   def set_post
