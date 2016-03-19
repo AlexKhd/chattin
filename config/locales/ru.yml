@@ -1,8 +1,12 @@
 ru:
+  confirm_email: Подтвердите Ваш e-mail
+  Example_email: Пример - myemail@gmail.com
   Yet_another_portal: Yet another portal
+  finish_registration: Завершить регистрацию
   Home: Главная
   Gallery: Галерея
   SlideShow: Слайдшоу
+  load_post: Загрузить
   Login: Войти
   Logout: Выйти
   Chat: Чат
@@ -17,22 +21,22 @@ ru:
   email: Ваш email
   password: Пароль
   password_confirmation: Подтверждение пароля
+  profile_updated: Ваш профиль обновлен
   remember_me: Запомнить меня
-  devise:
-    failure:
-      unauthenticated: 'Войдите или зарегистрируйтесь, чтобы продолжить.'
-      unconfirmed: 'You have to confirm your account before continuing.'
-      locked: 'Ваша учетная запись заблокирована.'
-      invalid: 'Неверное имя пользователя или пароль.'
-      invalid_token: 'Invalid authentication token.'
-      timeout: 'Your session expired, please sign in again to continue.'
-      inactive: 'Your account was not activated yet.'
-    sessions:
-      signed_in: ""
-      signed_out: ""
-    omniauth_callbacks:
-      failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
-      success: "Вход через %{kind} успешен."
+  Welcome: Добро пожаловать
+  You_can_confirm_your_account_email_through_the_link_below: Перейдите по ссылке ниже для подтверждения Вашего e-mail
+  Confirm_my_account: Подтвердить e-mail
+  Didnt_receive_confirmation_instructions?: Не получили письмо с подтверждением регистрации?
+  errors:
+    messages:
+      already_confirmed: "was already confirmed, please try signing in"
+      confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
+      expired: "has expired, please request a new one"
+      not_found: "not found"
+      not_locked: "was not locked"
+      not_saved:
+        one: "1 error prohibited this %{resource} from being saved:"
+        other: "%{count} errors prohibited this %{resource} from being saved:"
   forgot_your_password?: "Забыли пароль?"
   will_paginate:
     previous_label: Предыдущая

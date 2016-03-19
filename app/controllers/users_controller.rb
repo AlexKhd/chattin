@@ -61,7 +61,7 @@ class UsersController < ApplicationController
       if current_user.update(user_params)
         current_user.skip_confirmation!
         sign_in(current_user, :bypass => true)
-        redirect_to current_user, notice: 'Your profile was successfully updated.'
+        redirect_to root_path, notice: t(:profile_updated)
       else
         @show_errors = true
       end
@@ -75,13 +75,13 @@ class UsersController < ApplicationController
     # authorize! :delete, @user
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to root_url, notice: 'User was successfully deleted.' }
+      format.html { redirect_to :back, notice: 'User was successfully deleted.' }
       format.json { head :no_content }
     end
   end
 
   private
-  
+
   def set_user
     @user = User.find(params[:id])
   end

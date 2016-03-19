@@ -20,11 +20,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  confirm_email: Please confirm your e-mail
+  Example_email: Example - my_email@somesite.com
   Yet_another_portal: Yet another portal
+  finish_registration: Finish registration
   Home: Home
   Gallery: Gallery
   SlideShow: Slide Show
+  load_post: Upload
   Login: Login
   Logout: Logout
   Chat: Chat
@@ -39,22 +42,22 @@ en:
   email: Email
   password: Password
   password_confirmation: Password confirmation
+  profile_updated: Your profile was successfully updated.
   remember_me: Remember me
-  devise:
-    failure:
-      unauthenticated: 'You need to sign in or sign up before continuing.'
-      unconfirmed: 'You have to confirm your account before continuing.'
-      locked: 'Your account is locked.'
-      invalid: 'Invalid email or password.'
-      invalid_token: 'Invalid authentication token.'
-      timeout: 'Your session expired, please sign in again to continue.'
-      inactive: 'Your account was not activated yet.'
-    sessions:
-      signed_in: ""
-      signed_out: ""
-    omniauth_callbacks:
-      failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
-      success: "Successfully authenticated from %{kind} account."
+  Welcome: Welcome
+  You_can_confirm_your_account_email_through_the_link_below: You can confirm your account email through the link below
+  Confirm_my_account: Confirm my account
+  Didnt_receive_confirmation_instructions?: Didn't receive confirmation instructions?
+  errors:
+    messages:
+      already_confirmed: "was already confirmed, please try signing in"
+      confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
+      expired: "has expired, please request a new one"
+      not_found: "not found"
+      not_locked: "was not locked"
+      not_saved:
+        one: "1 error prohibited this %{resource} from being saved:"
+        other: "%{count} errors prohibited this %{resource} from being saved:"
   forgot_your_password?: "Forgot your password?"
   will_paginate:
     previous_label: Previous

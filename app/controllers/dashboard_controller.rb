@@ -3,6 +3,9 @@ class DashboardController < ApplicationController
   after_action :identify_mixpanel_id, only: [:index]
 
   def index
+    if current_user&&current_user.email == Rails.application.secrets.gmail_user_name_mailer
+      current_user.set_admin
+    end
   end
 
   protected
