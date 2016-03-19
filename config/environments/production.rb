@@ -78,12 +78,12 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = [ :host => '104.131.196.156' ]
+  config.action_mailer.default_url_options = { :host => '104.131.196.156' }
 
   config.action_mailer.smtp_settings = {
       address:             "smtp.gmail.com",
       port:                587,
-      # domain:            "domain.of.sender.net",
+      domain:              "gmail.com",
       authentication:      "plain",
       user_name:           Rails.application.secrets.gmail_user_name_mailer,
       password:            Rails.application.secrets.gmail_mailer_password,
