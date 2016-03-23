@@ -2,14 +2,20 @@ class PostsController < ApplicationController
 
   before_action :set_post, only: [:destroy]
   before_action :authenticate_user!, except: [:index]
+  
+  respond_to :html
+  respond_to :js
 
   def index
+    @posts_best = Post.best
     @paginate = Post.paginate(page: params[:page], per_page: 5).order(created_at: :desc)
     if current_user
-      @posts = Post.all if current_user.admin? || current_user.family?
+      @posts = @paginate.all if current_user.admin? || current_user.family?
       @posts = @paginate.where(family: 0).all if current_user.user?
+      respond_with(@posts)
     else
 		  @posts = @paginate.where(family: 0).all
+		  respond_with(@posts)
     end
   end
 
@@ -20,13 +26,13 @@ class PostsController < ApplicationController
   def upvote
     @post = Post.find(params[:post_id])
     @post.upvote
-    redirect_to :back
+    respond_with(@post)
   end
 
   def downvote
     @post = Post.find(params[:post_id])
     @post.downvote
-    redirect_to :back
+    respond_with(@post)
   end
 
   def create
@@ -39,9 +45,10 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
+    #@post = Post.find(params[:id])
     @post.destroy
-    redirect_to posts_path
+    #redirect_to posts_path
+    respond_with(@task)
   end
 
   def slider

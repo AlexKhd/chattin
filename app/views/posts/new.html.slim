@@ -3,8 +3,10 @@
   .form-wrapper
     = simple_form_for @post, html: { class: 'form-horizontal', multipart: true } do |f|
       .form-group
-        = f.input :image
+        = f.label t(:choose_picture)
+        = f.file_field :image, class: 'btn'
       .form-group.text-center
+        /= f.label t(:caption)
         = f.input :caption
       .form-group.text-center
         = f.input :family

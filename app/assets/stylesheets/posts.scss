@@ -110,10 +110,6 @@
   margin: 1px;
 }
 
-.counter_main {
-  display: inline;
-}
-
 .counter.green {
   // http://dabuttonfactory.com/
   background:    #6aa84f;
@@ -171,6 +167,7 @@
   //width: 7%;
   color: white;
   text-align: center;
+  margin-left: 15px;
 }
 
 #add_post {

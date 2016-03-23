@@ -20,6 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  best_photos: Top 5
+  caption: Caption
+  choose_picture: Choose a picture
   confirm_email: Please confirm your e-mail
   Example_email: Example - my_email@somesite.com
   Yet_another_portal: Yet another portal

@@ -1,0 +1,6 @@
+-posts_best.each do |post|
+  .image.center-block-
+    .counter
+      p= post.rating
+    =image_tag post.image.url(:thumb)
+    p

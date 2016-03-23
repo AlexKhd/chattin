@@ -18,6 +18,6 @@ module ApplicationHelper
   end
 
   def is_admin?
-    current_user.email == 'khodos.alexey@gmail.com' if @current_user
+    current_user.email == Rails.application.secrets.admin_email if @current_user
   end
 end

@@ -75,7 +75,7 @@ class UsersController < ApplicationController
     # authorize! :delete, @user
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to :back, notice: 'User was successfully deleted.' }
+      format.html { redirect_to users_path, notice: 'User was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -91,7 +91,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    accessible = [ :name, :email ]
+    accessible = [ :name, :email, :role ]
     accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
     params.require(:user).permit(accessible)
   end

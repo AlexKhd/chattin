@@ -6,7 +6,7 @@ include NewPost
 feature 'posts' do
 
   let(:caption)     { Faker::Lorem.sentence }
-  let(:user)        { FactoryGirl.create(:user)}
+  let(:user)        { FactoryGirl.create(:user, :confirmed)}
 
   scenario 'cannot delete photo until logged in' do
     visit posts_path

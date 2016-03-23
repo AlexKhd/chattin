@@ -1,0 +1,12 @@
+=div_for post do
+  .image.center-block-
+    =button_to '+', post_upvote_path(post), remote: true, class: 'btn_vote'
+    .counter
+      p= post.rating
+    =button_to '-', post_downvote_path(post), remote: true, class: 'btn_vote'
+    =image_tag post.image.url(:medium)
+    #after-post
+      p.text-center.edit-links
+      figcaption= post.caption
+      -if user_signed_in? && current_user.id == post.user_id
+        = link_to t(:delete_post), post_path(post), remote: true, method: :delete, class: "btn btn-warning", type: "button", data: { confirm: "#{t(:delete_post)}?" }

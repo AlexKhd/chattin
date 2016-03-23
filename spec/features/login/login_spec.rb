@@ -7,7 +7,7 @@ feature 'user login' do
 
    fill_in('user_email', with: 'an_email@dot.com')
    fill_in('user_password', with: 'a_pwd')
-
+   
    find('input[type = "submit"]').click
 
    expect(page).to have_selector('.alert-warning', text: 'Invalid email or password')
@@ -15,13 +15,12 @@ feature 'user login' do
 
   scenario 'success for correct user' do
     visit '/users/sign_in'
-    user = create(:user)
+    user = FactoryGirl.create(:user, :confirmed)
+    user.confirmed_at = Time.now
+    user.save
+    login_as(user, scope: :user)
 
-    fill_in('user_email', with: user.email)
-    fill_in('user_password', with: user.password)
-
-    find('input[type = "submit"]').click
-
+    visit '/'
     expect(page).to have_link('Logout')
   end
 end

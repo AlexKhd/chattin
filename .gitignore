@@ -35,6 +35,6 @@ capybara-*.html
 /Procfile
 /config/deploy/
 /shared/
-/public/system/
+/public/system
 /public/assets/
 /lib/capistrano/tasks/

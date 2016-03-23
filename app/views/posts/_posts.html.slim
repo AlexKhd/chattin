@@ -1,13 +1,13 @@
+gffhghjkk
 .posts-wrapper.row.col-md-7
-  -@posts = @posts.paginate(:page => params[:page], per_page: 5).order('id DESC')
+             -@posts = @posts.paginate(page: params[:page], per_page: 5).order('id DESC')
   = will_paginate(@posts, renderer: 'BootstrapPagination::Rails')
   -@posts.each do |post|
     .post
       .image.center-block-
         .counter_main id="counter_#{post.id}"
-          =button_to '+', post_upvote_path(post), class: 'btn_vote'
-          .counter
-            p= post.rating
+          =button_to '+', post_upvote_path(post), remote: true, class: 'btn_vote'
+          =render 'counter', :post => post
           =button_to '-', post_downvote_path(post), class: 'btn_vote'
         =image_tag post.image.url(:medium)
         #after-post

@@ -6,7 +6,7 @@ include NewPost
 feature 'posts'do
 
   let(:caption)     { Faker::Lorem.sentence }
-  let(:user)        { FactoryGirl.create(:user)}
+  let(:user)        { FactoryGirl.create(:user, :confirmed)}
 
   scenario 'adding new photo' do
     login_as(user, scope: :user)

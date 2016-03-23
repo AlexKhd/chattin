@@ -1,0 +1,1 @@
+$('div#<%= dom_id(@post) %>:first').replaceWith('<%= j render partial: "post", locals: {post: @post} %>');
