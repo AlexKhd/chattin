@@ -1,18 +1,1 @@
-gffhghjkk
-.posts-wrapper.row.col-md-7
-             -@posts = @posts.paginate(page: params[:page], per_page: 5).order('id DESC')
-  = will_paginate(@posts, renderer: 'BootstrapPagination::Rails')
-  -@posts.each do |post|
-    .post
-      .image.center-block-
-        .counter_main id="counter_#{post.id}"
-          =button_to '+', post_upvote_path(post), remote: true, class: 'btn_vote'
-          =render 'counter', :post => post
-          =button_to '-', post_downvote_path(post), class: 'btn_vote'
-        =image_tag post.image.url(:medium)
-        #after-post
-          p.text-center.edit-links
-          figcaption= post.caption
-          -if user_signed_in? && current_user.id == post.user_id
-            = link_to t(:delete_post), post_path(post), method: :delete, class: "btn btn-warning", type: "button", data: { confirm: "Delete post?" }
-  = will_paginate(@posts, renderer: 'BootstrapPagination::Rails')
+

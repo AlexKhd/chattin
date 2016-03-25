@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
 
   before_action :set_post, only: [:destroy]
-  before_action :authenticate_user!, except: [:index]
-  
+  before_action :authenticate_user!, except: [:index, :upvote, :downvote]
+
   respond_to :html
   respond_to :js
 
@@ -24,15 +24,21 @@ class PostsController < ApplicationController
   end
 
   def upvote
-    @post = Post.find(params[:post_id])
-    @post.upvote
-    respond_with(@post)
+    if current_user
+      @post = Post.find(params[:post_id])
+      #@vote_post = @post.vote_posts.build(vote_post_params)
+      #@vote_post.user = current_user
+      @post.upvote
+      respond_with(@post)
+    end
   end
 
   def downvote
-    @post = Post.find(params[:post_id])
-    @post.downvote
-    respond_with(@post)
+    if current_user
+      @post = Post.find(params[:post_id])
+      @post.downvote
+      respond_with(@post)
+    end
   end
 
   def create

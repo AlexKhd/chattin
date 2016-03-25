@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160318202024) do
+ActiveRecord::Schema.define(version: 20160323184825) do
 
   create_table "chats", force: :cascade do |t|
     t.string   "ip_addr",    limit: 255
@@ -90,6 +90,19 @@ ActiveRecord::Schema.define(version: 20160318202024) do
     t.datetime "updated_at",           null: false
   end
 
+  create_table "vote_posts", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "post_id",    limit: 4
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.boolean  "result",               default: true, null: false
+  end
+
+  add_index "vote_posts", ["post_id"], name: "index_vote_posts_on_post_id", using: :btree
+  add_index "vote_posts", ["user_id"], name: "index_vote_posts_on_user_id", using: :btree
+
   add_foreign_key "identities", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "vote_posts", "posts"
+  add_foreign_key "vote_posts", "users"
 end

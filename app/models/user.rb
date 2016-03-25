@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   has_many :posts, dependent: :destroy
   has_many :identities, dependent: :destroy
+  has_many :vote_posts, dependent: :destroy
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
 

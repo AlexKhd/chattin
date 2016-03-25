@@ -4,7 +4,7 @@
     .counter
       p= post.rating
     =button_to '-', post_downvote_path(post), remote: true, class: 'btn_vote'
-    =image_tag post.image.url(:medium)
+    =link_to image_tag(post.image.url(:medium), alt: post.caption), post.image.url(:original), popup: ['original_image', 'height=700,width=900']
     #after-post
       p.text-center.edit-links
       figcaption= post.caption
