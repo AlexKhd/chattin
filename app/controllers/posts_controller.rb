@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  include PostsHelper
 
   before_action :set_post, only: [:destroy]
   before_action :authenticate_user!, except: [:index, :upvote, :downvote]
@@ -26,9 +27,11 @@ class PostsController < ApplicationController
   def upvote
     if current_user
       @post = Post.find(params[:post_id])
-      #@vote_post = @post.vote_posts.build(vote_post_params)
-      #@vote_post.user = current_user
-      @post.upvote
+      if !vote_result(@post) # user isn't allowed to vote twice
+        @vote_post = current_user.vote_posts.build(value: 1, post: @post)
+        @vote_post.save
+        @post.upvote
+      end
       respond_with(@post)
     end
   end
@@ -36,7 +39,11 @@ class PostsController < ApplicationController
   def downvote
     if current_user
       @post = Post.find(params[:post_id])
-      @post.downvote
+      if !vote_result(@post)
+        @vote_post = current_user.vote_posts.build(value: -1, post: @post)
+        @vote_post.save
+        @post.downvote
+      end
       respond_with(@post)
     end
   end
