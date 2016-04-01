@@ -6,20 +6,21 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/poltergeist'
 
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+
 ActiveRecord::Migration.maintain_test_schema!
 Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, { debug: true, js_errors: false, timeout: 30 })
+  Capybara::Poltergeist::Driver.new(app, { debug: false, js_errors: false, timeout: 30 })
 end
 
 Capybara.default_driver = :poltergeist
 Capybara.javascript_driver = :poltergeist
 
-Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
-
 include Warden::Test::Helpers
 Warden.test_mode!
 
 RSpec.configure do |config|
+  config.include Devise::TestHelpers, type: :controller
   config.include FactoryGirl::Syntax::Methods
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = false

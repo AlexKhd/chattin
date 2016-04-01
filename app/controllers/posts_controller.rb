@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
   include PostsHelper
+  attr_accessor :vote_btn_class
 
   before_action :set_post, only: [:destroy]
   before_action :authenticate_user!, except: [:index, :upvote, :downvote]
+  before_action :get_vote_btn_class
 
   respond_to :html
   respond_to :js
@@ -33,6 +35,9 @@ class PostsController < ApplicationController
         @post.upvote
       end
       respond_with(@post)
+    else
+      #redirect_to new_user_session_path, notice: 'Register first.'
+      render js: "window.location = '#{new_user_session_path}';"
     end
   end
 
@@ -45,6 +50,8 @@ class PostsController < ApplicationController
         @post.downvote
       end
       respond_with(@post)
+    else
+      render js: "window.location = '#{new_user_session_path}';"
     end
   end
 
@@ -76,5 +83,9 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def get_vote_btn_class
+    current_user ? @vote_btn_class = "btn_vote" : @vote_btn_class = "btn_vote opacity4"
   end
 end

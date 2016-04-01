@@ -1,9 +1,9 @@
 =div_for post do
   .image.center-block-
-    =button_to '+', post_upvote_path(post), remote: true, class: current_user ? "btn_vote" : "btn_vote opacity4", id: ("vote_pos" if current_user && vote_result(post) == 1)
+    =button_to '+', post_upvote_path(post), remote: true, class: (current_user && vote_result(post) == 1 ? @vote_btn_class + " voted_pos" : @vote_btn_class )
     .counter
       p= post.rating
-    =button_to '-', post_downvote_path(post), remote: true, class: current_user ? "btn_vote" : "btn_vote opacity4", id: ("vote_neg" if current_user && vote_result(post) == -1)
+    =button_to '-', post_downvote_path(post), remote: true, class: (current_user && vote_result(post) == -1 ? @vote_btn_class + " voted_neg" : @vote_btn_class )
     =link_to image_tag(post.image.url(:medium), alt: post.caption), post.image.url(:original), popup: ['original_image', 'height=700,width=900']
     #after-post
       p.text-center.edit-links
