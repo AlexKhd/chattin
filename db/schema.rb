@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160329162916) do
+ActiveRecord::Schema.define(version: 20160405141258) do
 
   create_table "chats", force: :cascade do |t|
     t.string   "ip_addr",    limit: 255
@@ -22,6 +22,22 @@ ActiveRecord::Schema.define(version: 20160329162916) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id",            limit: 4
+    t.integer  "post_id",            limit: 4
+    t.string   "content",            limit: 255,             null: false
+    t.integer  "rating",             limit: 4,   default: 0, null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
+  end
+
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -102,6 +118,8 @@ ActiveRecord::Schema.define(version: 20160329162916) do
   add_index "vote_posts", ["post_id"], name: "index_vote_posts_on_post_id", using: :btree
   add_index "vote_posts", ["user_id"], name: "index_vote_posts_on_user_id", using: :btree
 
+  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users"
   add_foreign_key "identities", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "vote_posts", "posts"

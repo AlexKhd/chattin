@@ -1,0 +1,26 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.darkline {
+  background-color: #474343;
+}
+
+#addComment {
+  h4 {
+    margin: 0;
+  }
+  margin-top: 40px;
+  background-color: #CDC9C9;
+}
+
+#new_comment {
+  textarea {
+    width: 90%;
+  }
+}
+
+.comment {
+	border-bottom:thick double #423F3F;
+  margin-top: 10px;
+}

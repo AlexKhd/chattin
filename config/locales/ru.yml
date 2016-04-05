@@ -1,4 +1,5 @@
 ru:
+  add_comment: Добавить комментарий
   best_photos: Лучшие
   caption: Название
   choose_picture: Выберите изображение
@@ -18,8 +19,10 @@ ru:
   Posts: Фотографии
   new_post: Добавить фото
   delete_post: Удалить фото
+  delete_comment: Удалить комментарий
   Up: Вверх
   log_in: Вход
+  read_post: Читать дальше
   sign_up: Регистрация
   sign_in_with: Войти через
   email: Ваш email

@@ -2,8 +2,8 @@ class PostsController < ApplicationController
   include PostsHelper
   attr_accessor :vote_btn_class
 
-  before_action :set_post, only: [:destroy]
-  before_action :authenticate_user!, except: [:index, :upvote, :downvote]
+  before_action :set_post, only: [:destroy, :show]
+  before_action :authenticate_user!, except: [:index, :upvote, :downvote, :show]
   before_action :get_vote_btn_class
 
   respond_to :html
@@ -73,6 +73,10 @@ class PostsController < ApplicationController
 
   def slider
     @posts = Post.all
+  end
+
+  def show
+    @comments = Comment.all
   end
 
   private

@@ -30,7 +30,7 @@ html {
 }
 
 #wrapper {
-  left: 40px;
+  left: 15px;
   position: relative;
   top: 130px;
   width: 95%;
@@ -40,6 +40,10 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0 0 35px;
 	padding: 0;
 	text-transform: uppercase;
+}
+
+.btn.sharp {
+  border-radius:0;
 }
 
 p, ol, ul, td {

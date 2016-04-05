@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  add_comment: Add comment
   best_photos: Top 5
   caption: Caption
   choose_picture: Choose a picture
@@ -39,8 +40,10 @@ en:
   Posts: Posts
   new_post: New Post
   delete_post: Delete Post
+  delete_comment: Delete comment
   Up: Up
   log_in: Log in
+  read_post: Read more
   sign_up: Sign Up
   sign_in_with: Sign in with
   email: Email

@@ -12,6 +12,7 @@ class Post < ActiveRecord::Base
 
   belongs_to :user
   has_many :vote_posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def upvote
     update_attribute(:rating, self.rating + 1)

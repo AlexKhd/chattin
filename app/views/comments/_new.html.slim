@@ -1,0 +1,14 @@
+.row
+  .col-md-2
+  .col-md-10
+    #addComment
+      -if current_user
+        h4 = t(:add_comment)
+        = simple_form_for([@post, @post.comments.build], html: { multipart: true }) do |f|
+          = f.text_area :content
+          p
+            = f.file_field :image, class: 'btn'
+          p
+            = f.submit t(:add_comment), class: 'btn btn-success btn-xs'
+      -else
+        p Чтобы оставить комментарий, необходимо авторизоваться или зарегистрироваться.
