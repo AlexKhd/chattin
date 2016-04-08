@@ -1,3 +1,4 @@
+# ajax helper
 module WaitForAjaxHelpers
   def wait_for_ajax
     counter = 0

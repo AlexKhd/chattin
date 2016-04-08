@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  add_commen: tesssssss
   add_comment: Add comment
   best_photos: Top 5
   caption: Caption
@@ -72,3 +73,8 @@ en:
   time:
     formats:
       default: "%H:%M"
+  registration:
+    test: tesssssss
+    text: "You need to %{to_login} or %{to_register} to leave a comment"
+    to_login: "login"
+    to_register: "register"

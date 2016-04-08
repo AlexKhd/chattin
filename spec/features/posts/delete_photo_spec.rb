@@ -4,9 +4,8 @@ require 'support/feature_helpers/new_post'
 include NewPost
 
 feature 'posts' do
-
   let(:caption)     { Faker::Lorem.sentence }
-  let(:user)        { FactoryGirl.create(:user, :confirmed)}
+  let(:user)        { FactoryGirl.create(:user, :confirmed) }
 
   scenario 'cannot delete photo until logged in' do
     visit posts_path
@@ -35,5 +34,4 @@ feature 'posts' do
     visit posts_path
     expect(page).not_to have_link('Delete Post')
   end
-
 end

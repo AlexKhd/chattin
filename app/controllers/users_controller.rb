@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   before_action :check_if_admin, only: [:index]
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :finish_signup]
+  before_action :set_user, only: [:show,
+                                  :edit,
+                                  :update,
+                                  :destroy,
+                                  :finish_signup
+                                 ]
   skip_before_action :set_locale
 
   # GET /users
@@ -30,7 +35,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notice: 'User was created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -44,8 +49,8 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        sign_in(@user == current_user ? @user : current_user, :bypass => true)
-        format.html { redirect_to @user, notice: 'Your profile was successfully updated.' }
+        sign_in(@user == current_user ? @user : current_user, bypass: true)
+        format.html { redirect_to @user, notice: 'Your profile was updated.' }
         format.json { head :no_content }
       else
         format.html { render :edit }
@@ -57,10 +62,10 @@ class UsersController < ApplicationController
   def finish_signup
     # authorize! :update, @user
     current_user.skip_confirmation!
-    if request.patch? && params[:user] #&& params[:user][:email]
+    if request.patch? && params[:user] # && params[:user][:email]
       if current_user.update(user_params)
         current_user.skip_confirmation!
-        sign_in(current_user, :bypass => true)
+        sign_in(current_user, bypass: true)
         redirect_to root_path, notice: t(:profile_updated)
       else
         @show_errors = true
@@ -75,7 +80,7 @@ class UsersController < ApplicationController
     # authorize! :delete, @user
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_path, notice: 'User was successfully deleted.' }
+      format.html { redirect_to users_path, notice: 'User was deleted.' }
       format.json { head :no_content }
     end
   end
@@ -87,12 +92,14 @@ class UsersController < ApplicationController
   end
 
   def check_if_admin
-    redirect_to root_path, notice: 'Access denied' unless current_user && current_user.admin?
+    redirect_to root_path, notice: 'Access denied' unless
+      current_user && current_user.admin?
   end
 
   def user_params
-    accessible = [ :name, :email, :role ]
-    accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
+    accessible = [:name, :email, :role]
+    accessible << [:password, :password_confirmation] unless
+      params[:user][:password].blank?
     params.require(:user).permit(accessible)
   end
 end

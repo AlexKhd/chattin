@@ -11,4 +11,6 @@
           p
             = f.submit t(:add_comment), class: 'btn btn-success btn-xs'
       -else
-        p Чтобы оставить комментарий, необходимо авторизоваться или зарегистрироваться.
+        = t('registration.text',
+          to_login: link_to(t('registration.to_login'), new_user_session_path),
+          to_register: link_to(t('registration.to_register'), new_user_registration_path)).html_safe

@@ -30,15 +30,15 @@ group :development, :test do
 end
 
 group :development do
-   gem 'guard-rspec', require: false
-   gem 'web-console', '~> 3.0'
-   gem "capistrano", "~> 3.4"
-   gem 'capistrano-rails'
-   gem 'capistrano-rbenv', '~> 2.0', require: false
+  gem 'guard-rspec', require: false
+  gem 'web-console', '~> 3.0'
+  gem 'capistrano', '~> 3.4'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv', '~> 2.0', require: false
 end
 
 group :test do
-  gem "capybara"
+  gem 'capybara'
   gem 'poltergeist'
   gem 'database_cleaner', '~> 1.5'
   gem 'factory_girl_rails'

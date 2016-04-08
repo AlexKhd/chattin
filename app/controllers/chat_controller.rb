@@ -2,19 +2,17 @@ class ChatController < WebsocketRails::BaseController
   include ActionView::Helpers::SanitizeHelper
 
   def system_msg_ctrl(ev, msg)
-    broadcast_message ev, {
-      user_name: 'INFO',
-      received: Time.now.to_s(:short),
-      msg_body: msg
-    }
+    broadcast_message ev,
+                      user_name: 'INFO',
+                      received: Time.now.to_s(:short),
+                      msg_body: msg
   end
 
   def user_msg(ev, msg)
-    broadcast_message ev, {
-      user_name: connection_store[:user][:user_name],
-      received: Time.now.strftime("%H:%M:%S"),
-      msg_body: ERB::Util.h(msg)
-    }
+    broadcast_message ev,
+                      user_name: connection_store[:user][:user_name],
+                      received: Time.now.strftime('%H:%M:%S'),
+                      msg_body: ERB::Util.h(msg)
   end
 
   def client_connected_ctrl
@@ -28,7 +26,8 @@ class ChatController < WebsocketRails::BaseController
   def new_user_ctrl
     connection_store[:user] = { user_name: sanitize(message[:user_name]) }
     broadcast_user_list
-    system_msg_ctrl :new_message, "#{connection_store[:user][:user_name]} joined the chat"
+    system_msg_ctrl :new_message,
+                    "#{connection_store[:user][:user_name]} joined the chat"
   end
 
   def change_username
@@ -37,7 +36,8 @@ class ChatController < WebsocketRails::BaseController
   end
 
   def delete_user
-    system_msg_ctrl :new_message, "#{connection_store[:user][:user_name]} has left"
+    system_msg_ctrl :new_message,
+                    "#{connection_store[:user][:user_name]} has left"
     connection_store[:user] = nil
     broadcast_user_list
   end

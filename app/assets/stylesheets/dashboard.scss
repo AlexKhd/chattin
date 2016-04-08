@@ -19,7 +19,6 @@ body {
   height: 100%;
   color: #333;
   background-color: gray;
-	font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 13px;
   line-height: 18px;
 }
@@ -107,8 +106,9 @@ div {
   vertical-align: middle;
 }
 
-.intro .intro-body .brand-headind {
+.intro .intro-body .brand-heading {
   font-size: 40px;
+  font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .intro .intro-body .intro-text {

@@ -5,9 +5,9 @@ class User < ActiveRecord::Base
   TEMP_EMAIL_REGEX = /\Achange@me/
 
   devise :database_authenticatable, :registerable, :omniauthable,
-  :recoverable, :rememberable, :trackable, :validatable, :confirmable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
+  validates_format_of :email, without: TEMP_EMAIL_REGEX, on: :update
 
   has_many :posts, dependent: :destroy
   has_many :identities, dependent: :destroy
@@ -15,25 +15,23 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
-
     identity = Identity.find_for_oauth(auth)
-
     user = signed_in_resource ? signed_in_resource : identity.user
 
     if user.nil?
-
-      email_is_verified = auth.info.email && (auth.info.verified || auth.info.verified_email)
+      email_is_verified = auth.info.email && (
+        auth.info.verified || auth.info.verified_email
+      )
       email = auth.info.email if email_is_verified
-      user = User.where(:email => email).first if email
+      user = User.where(email: email).first if email
 
       if user.nil?
         user = User.new(
-        name: auth.extra.raw_info.name,
-        #username: auth.info.nickname || auth.uid,
-        email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
-        password: Devise.friendly_token[0,20],
-        avatar_file_name: auth.info.image,
-        avatar_updated_at: Time.now
+          name: auth.extra.raw_info.name,
+          email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
+          password: Devise.friendly_token[0, 20],
+          avatar_file_name: auth.info.image,
+          avatar_updated_at: Time.now
         )
         user.skip_confirmation!
         user.save!
@@ -48,7 +46,7 @@ class User < ActiveRecord::Base
   end
 
   def email_verified?
-    self.email && self.email !~ TEMP_EMAIL_REGEX
+    email && email !~ TEMP_EMAIL_REGEX
   end
 
   def facebook_uid
@@ -57,6 +55,6 @@ class User < ActiveRecord::Base
   end
 
   def set_admin
-      update_attribute(:role, :admin)
+    update_attribute(:role, :admin)
   end
 end

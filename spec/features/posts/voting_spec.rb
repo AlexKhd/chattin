@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 feature 'voting' do
-
   let(:caption)     { Faker::Lorem.sentence }
   let(:user)        { FactoryGirl.create(:user, :confirmed) }
   let(:post)        { FactoryGirl.create(:post, user: user) }
@@ -18,27 +17,27 @@ feature 'voting' do
     post
     login_as(user, scope: :user)
     visit posts_path
-    expect(page).to have_css(".counter p", text: '0')
+    expect(page).to have_css('.counter p', text: '0')
 
     find("input[value='+']").click
-    expect(page).to have_css(".counter p", text: '1')
+    expect(page).to have_css('.counter p', text: '1')
     expect(page).to have_selector("input.voted_pos[value='+']")
 
     find("input[value='+']").click
-    expect(page).not_to have_css(".counter p", text: '2')
+    expect(page).not_to have_css('.counter p', text: '2')
   end
 
   scenario 'check negative vote & not allowed to vote twice' do
     post
     login_as(user, scope: :user)
     visit posts_path
-    expect(page).to have_css(".counter p", text: '0')
+    expect(page).to have_css('.counter p', text: '0')
 
     find("input[value='-']").click
-    expect(page).to have_css(".counter p", text: '-1')
+    expect(page).to have_css('.counter p', text: '-1')
     expect(page).to have_selector("input.voted_neg[value='-']")
 
     find("input[value='-']").click
-    expect(page).not_to have_css(".counter p", text: '-2')
+    expect(page).not_to have_css('.counter p', text: '-2')
   end
 end

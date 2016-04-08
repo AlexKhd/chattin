@@ -5,7 +5,8 @@
         .col-md-2
           =@post.user.name ? @post.user.name : "NoName"
         .col-md-10
-          =@post.caption
+          p
+            =@post.caption
           =link_to image_tag(@post.image.url(:medium), alt: @post.caption), @post.image.url(:original), popup: ['original_image', 'height=700,width=900']
       .row
         -@post.comments.each do |comment|

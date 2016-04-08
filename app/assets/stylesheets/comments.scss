@@ -23,4 +23,8 @@
 .comment {
 	border-bottom:thick double #423F3F;
   margin-top: 10px;
+  max-width: 640px;
+  p {
+    //max-width: 640px;
+  }
 }

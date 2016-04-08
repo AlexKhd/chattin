@@ -28,6 +28,7 @@
 /spec/tmp
 capybara-*.html
 .rspec
+.rubocop.yml
 
 *.DS_Store
 .byebug_history
