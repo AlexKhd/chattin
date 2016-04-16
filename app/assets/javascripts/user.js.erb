@@ -1,0 +1,125 @@
+$(document).ready(function() {
+  'use strict';
+
+  var signinValidate = (function($) {
+
+    var formFields = $('#new_user > .field'),
+        formSubmitButton = $('#new_user input[type="submit"]');
+
+    var formValidate,
+        submitValidate,
+        initialize;
+
+    formValidate = function(fieldset) {
+      var field = fieldset.find('.form-group input'),
+          fieldId = field.attr('id'),
+          fieldValue = field.val(),
+          fieldWarning = fieldset.find('.login-help div');
+
+      switch (fieldId) {
+        case 'user_name':
+          if (fieldValue) {
+            console.log("change?");
+            if (fieldValue.length < 3) {
+              field.removeClass('correct').addClass('error');
+              fieldWarning.html('<%= I18n.t(:user_three) %>');
+            } else {
+              $.post('/checkname?name='+$("#user_name").val(),function(data){
+                if (data.name_exists) {
+                  field.removeClass('correct').addClass('error');
+                  fieldWarning.html('<%= I18n.t(:user_exists) %>');
+                } else {
+                  field.removeClass('error').addClass('correct');
+                  fieldWarning.html('');
+                }
+              });
+            }
+          } else {
+            field.removeClass('correct').addClass('error');
+            fieldWarning.html('<%= I18n.t(:required_field) %>');
+          }
+          break;
+        case 'user_email':
+          var filter = /^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9_-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$/;
+          if (filter.test(fieldValue)) {
+            field.removeClass('error').addClass('correct');
+            fieldWarning.html('');
+          } else if (!fieldValue) {
+            field.removeClass('correct').addClass('error');
+            fieldWarning.html('<%= I18n.t(:required_field) %>');
+          } else {
+            field.removeClass('correct').addClass('error');
+            fieldWarning.html('<%= I18n.t(:incorrect_email) %>');
+          }
+          break;
+        case 'user_password':
+          if (fieldValue) {
+            if (fieldValue.length < 6) {
+              field.removeClass('correct').addClass('error');
+              fieldWarning.html('<%= I18n.t(:passw_six) %>');
+            } else {
+              field.removeClass('error').addClass('correct');
+              fieldWarning.html('');
+            }
+          } else {
+            field.removeClass('correct').addClass('error');
+            fieldWarning.html('<%= I18n.t(:required_field) %>');
+          }
+          break;
+        case 'user_password_confirmation':
+          if (fieldValue) {
+            if (fieldValue.length < 6) {
+              field.removeClass('correct').addClass('error');
+              fieldWarning.html('<%= I18n.t(:passw_six) %>');
+            } else {
+              field.removeClass('error').addClass('correct');
+              fieldWarning.html('');
+            }
+          } else {
+            field.removeClass('correct').addClass('error');
+            fieldWarning.html('<%= I18n.t(:required_field) %>');
+          }
+          break;
+        default:
+          if (fieldValue) {
+            field.addClass('correct');
+          } else {
+            field.removeClass('correct');
+          }
+      }
+    };
+
+    submitValidate = function() {
+      return ($('#user_password').hasClass('correct') && $('#user_email').hasClass('correct'));
+    };
+
+    $('#new_user').submit(function(e) {
+      e.preventDefault();
+      if (submitValidate()) {
+        this.submit();
+      }
+    });
+
+    initialize = function() {
+      formFields.on('input', function(e) {
+        formValidate($(this));
+          if (submitValidate()) {
+            formSubmitButton.removeClass('disabled');
+          } else {
+            formSubmitButton.addClass('disabled');
+          }
+      });
+      formSubmitButton.on('mouseover', function(e) {
+        $(this);
+      });
+    };
+
+    return {
+      init: initialize
+    };
+  }(jQuery));
+
+  signinValidate.init();
+  $('#user_email').trigger('input');
+  $('#user_name').trigger('input');
+});

@@ -1,6 +1,10 @@
 #new_user {
+  a {
+    font-size: 12px;
+    line-height: inherit;
+  }
   padding: 20px;
-  margin: 0 auto;
+  margin: 5px auto;
   max-width: 330px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   font-size: 16px;
@@ -8,7 +12,52 @@
 
 #btn_via_facebook {
 	display: block;
-	width: 177px;
 	padding: 5px 0;
 	font: 14px Helvetica,Arial,sans-serif;
+}
+
+.field .login-help {
+  color: #f00;
+  font-size: 12px;
+  padding-top: 2px;
+}
+
+#login-h2 {
+  color: #4a5e82;
+  font-size: 24px;
+  margin: 0 auto;
+  padding: 10px 10px 30px 0;
+  position: relative;
+}
+
+#login-h2:after {
+  box-shadow: 0px 2px 3px -2px #4a5e82;
+  content: '';
+  display: block;
+  height: 8px;
+  transition: all ease 0.5s;
+  width: 80px;
+  z-index: -1;
+}
+
+#login-h2:hover:after {
+  left: 0;
+  width: 120px;
+}
+
+.form-control.error {
+  border: 2px solid #f00;
+}
+
+.form-control.correct {
+  border: 2px solid green;
+}
+
+.login-help {
+  margin-top: -15px;
+}
+
+.field label {
+  padding-left: 2px;
+  font-weight: normal;
 }

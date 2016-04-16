@@ -9,8 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   	<link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
   	<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
     <%= render '/includes/tracking.js' %>
 </head>
 <body id="page-top" data-target=".navbar-fixed-top" data-spy="scroll">
@@ -20,10 +18,10 @@
       <% if current_page?(root_path) %>
         <%= yield %>
         <%= render 'layouts/footer' %>
-         <% else %>
-         <div id="wrapper">
-           <%= yield %>
-         </div>
+          <% else %>
+            <div id="wrapper">
+              <%= yield %>
+            </div>
       <% end %>
       <%= render 'layouts/google_analytics' %>
 </body>

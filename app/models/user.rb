@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
   has_many :vote_posts, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  def self.search(name)
+    where('name = ?', name).first if name
+  end
+
   def self.find_for_oauth(auth, signed_in_resource = nil)
     identity = Identity.find_for_oauth(auth)
     user = signed_in_resource ? signed_in_resource : identity.user

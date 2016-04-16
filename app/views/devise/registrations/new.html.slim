@@ -1,0 +1,24 @@
+.col-sm-4.col-sm-offset-4
+  h2#login-h2 = t('registration.register')
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    .field
+      = f.input :name, autofocus: true, placeholder: t('registration.name'), label: false
+      .login-help
+        .opacity5 = t(:required_field)
+    .field
+      = f.input :email, placeholder: t(:email), label: false
+      .login-help
+        .opacity5 = t(:required_field)
+    .field
+      = f.input :password, placeholder: t(:password), label: false
+      .login-help
+        .opacity5 = t(:required_field)
+    .field
+      = f.input :password_confirmation, placeholder: t(:password_confirmation), label: false
+      .login-help
+        .opacity5 = t(:required_field)
+
+    .form-actions
+      = f.button :submit, t(:sign_up), class: "btn-info"
+    br
+    = render "devise/shared/links"

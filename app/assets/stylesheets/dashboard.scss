@@ -116,18 +116,18 @@ div {
 }
 
 .alert {
-  position: relative;
+  position: absolute;
   top: 75px;
-  width: 95%;
-  margin: 0 auto;
+  left: 5%;
+  right: 5%;
 }
 
 #chat-section {
   padding-top: 60px;
 }
 
-.transparency5 {
-  transparency: 0.5;
+.opacity5 {
+  opacity: 0.5;
 }
 
 .well {

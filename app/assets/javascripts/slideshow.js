@@ -1,4 +1,4 @@
-var slider = function() {
+/*var slider = function() {
 
 	// Set time delay of slider
 	var delay = 5000;
@@ -141,3 +141,4 @@ $(document).ready(function() {
 	slider();
 
 });
+*/

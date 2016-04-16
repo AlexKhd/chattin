@@ -85,6 +85,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def checkname
+    @user = User.search(params[:name])
+    respond_to do |format|
+      format.json {render json: {name_exists: @user.present?}} #sir Deep suggestion to return true or false for email_exists or the code below
+   # format.json {render :json => @user} #this will output null if email is not in the database
+  end
+end
+
   private
 
   def set_user

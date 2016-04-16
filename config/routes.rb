@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get 'chat', to: 'chats#chat'
 
+  post '/checkname', to: 'users#checkname'
   resources :users, :chats, :photos
 
   resources :posts do

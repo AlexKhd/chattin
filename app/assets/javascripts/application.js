@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-// require bootstrap-sprockets
-//= require bootstrap
+//= require jquery-ui
+//= require bootstrap-sprockets
 //= require websocket_rails/main
 //= require_tree .
 
@@ -37,10 +37,16 @@ $(window).scroll(function() {
     } else {
         $(".navbar-fixed-top").removeClass("top-nav-collapse");
     }
-  });
+});
 
 // Closes the Responsive Menu on Menu Item Click
+/*
 $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
     console.log('collapsing');
 });
+
+$(document).ready(function() {
+  $( "#user_password" ).datepicker();
+});
+*/

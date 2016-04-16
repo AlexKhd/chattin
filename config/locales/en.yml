@@ -50,8 +50,13 @@ en:
   email: Email
   password: Password
   password_confirmation: Password confirmation
+  passw_six: Password has to be at least 6 characters
+  user_three: Name has to be at least 3 characters
+  user_exists: The name already exists
+  incorrect_email: Please enter correct e-mail address
   profile_updated: Your profile was successfully updated.
   remember_me: Remember me
+  required_field: This field is required
   Welcome: Welcome
   You_can_confirm_your_account_email_through_the_link_below: You can confirm your account email through the link below
   Confirm_my_account: Confirm my account
@@ -74,7 +79,9 @@ en:
     formats:
       default: "%H:%M"
   registration:
-    test: tesssssss
     text: "You need to %{to_login} or %{to_register} to leave a comment"
     to_login: "login"
     to_register: "register"
+    login: Log in
+    registration: Registration
+    name: Name

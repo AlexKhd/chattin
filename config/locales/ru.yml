@@ -28,8 +28,13 @@ ru:
   email: Ваш email
   password: Пароль
   password_confirmation: Подтверждение пароля
+  passw_six: Длина пароля не менее 6 символов
+  user_three: Не менее 3 символов
+  user_exists: Такое имя уже есть
+  incorrect_email: Укажите корректный e-mail
   profile_updated: Ваш профиль обновлен
   remember_me: Запомнить меня
+  required_field: Обязательное поле
   Welcome: Добро пожаловать
   You_can_confirm_your_account_email_through_the_link_below: Перейдите по ссылке ниже для подтверждения Вашего e-mail
   Confirm_my_account: Подтвердить e-mail
@@ -55,3 +60,6 @@ ru:
     text: "Чтобы оставить комментарий, необходимо %{to_login} или %{to_register}."
     to_login: "войти"
     to_register: "зарегистрироваться"
+    login: Вход
+    register: Регистрация
+    name: Имя
