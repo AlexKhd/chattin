@@ -50,6 +50,7 @@ en:
   email: Email
   password: Password
   password_confirmation: Password confirmation
+  password_mismatch: Passwords mismatch
   passw_six: Password has to be at least 6 characters
   user_three: Name has to be at least 3 characters
   user_exists: The name already exists

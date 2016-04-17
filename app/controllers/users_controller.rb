@@ -6,7 +6,7 @@ class UsersController < ApplicationController
                                   :destroy,
                                   :finish_signup
                                  ]
-  skip_before_action :set_locale
+  before_action :set_locale
 
   # GET /users
   # GET /users.json

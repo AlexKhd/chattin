@@ -28,6 +28,7 @@ ru:
   email: Ваш email
   password: Пароль
   password_confirmation: Подтверждение пароля
+  password_mismatch: Пароли не совпадают
   passw_six: 'Длина пароля не менее 6 символов'
   user_three: 'Не менее 3 символов'
   user_exists: Такое имя уже есть

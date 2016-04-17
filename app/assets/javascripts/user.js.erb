@@ -23,6 +23,21 @@ $(document).ready(function() {
             if (fieldValue.length < 3) {
               field.removeClass('correct').addClass('error');
               fieldWarning.html('<%= I18n.t(:user_three) %>');
+              $.ajax({
+                url: '/checkname?name='+$("#user_name").val(),
+                headers: {
+                    //'Authorization':'Basic xxxxxxxxxxxxx',
+                    //'X_CSRF_TOKEN':'xxxxxxxxxxxxxxxxxxxx',
+                    'Accept-Language': 'ru',
+                    'Content-Type':'application/json'
+                },
+                method: 'POST',
+                dataType: 'json',
+                //data: YourData,
+                success: function(data){
+                  console.log('succes: '+data);
+                }
+              });
             } else {
               $.post('/checkname?name='+$("#user_name").val(),function(data){
                 if (data.name_exists) {
@@ -71,10 +86,13 @@ $(document).ready(function() {
             if (fieldValue.length < 6) {
               field.removeClass('correct').addClass('error');
               fieldWarning.html('<%= I18n.t(:passw_six) %>');
-            } else {
-              field.removeClass('error').addClass('correct');
-              fieldWarning.html('');
-            }
+            } else if (fieldValue === $('#user_password').val()) {
+                field.removeClass('error').addClass('correct');
+                fieldWarning.html('');
+              } else {
+                field.removeClass('correct').addClass('error');
+                fieldWarning.html('<%= I18n.t(:password_mismatch) %>');
+              }
           } else {
             field.removeClass('correct').addClass('error');
             fieldWarning.html('<%= I18n.t(:required_field) %>');
