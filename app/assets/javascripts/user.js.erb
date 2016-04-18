@@ -2,6 +2,7 @@ $(document).ready(function() {
   'use strict';
 
   var curr_locale = '<%= I18n.locale %>';
+  console.log('curr_locale aft init = ' + curr_locale);
   var signinValidate = (function($) {
 
     var formFields = $('#new_user > .field'),
