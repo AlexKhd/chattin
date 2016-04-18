@@ -28,6 +28,7 @@ $(document).ready(function() {
                 if (data.name_exists) {
                   field.removeClass('correct').addClass('error');
                   if (curr_locale === 'ru') {
+                    console.log('user exists ru');
                     fieldWarning.html('Такой пользователь уже есть');
                   } else {
                     fieldWarning.html('<%= I18n.t(:user_exists) %>');
