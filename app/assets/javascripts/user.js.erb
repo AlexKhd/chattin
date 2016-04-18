@@ -1,6 +1,7 @@
 $(document).ready(function() {
   'use strict';
 
+  var curr_locale = '<%= I18n.locale %>';
   var signinValidate = (function($) {
 
     var formFields = $('#new_user > .field'),
@@ -19,30 +20,18 @@ $(document).ready(function() {
       switch (fieldId) {
         case 'user_name':
           if (fieldValue) {
-            console.log("change?");
             if (fieldValue.length < 3) {
               field.removeClass('correct').addClass('error');
               fieldWarning.html('<%= I18n.t(:user_three) %>');
-              $.ajax({
-                url: '/checkname?name='+$("#user_name").val(),
-                headers: {
-                    //'Authorization':'Basic xxxxxxxxxxxxx',
-                    //'X_CSRF_TOKEN':'xxxxxxxxxxxxxxxxxxxx',
-                    'Accept-Language': 'ru',
-                    'Content-Type':'application/json'
-                },
-                method: 'POST',
-                dataType: 'json',
-                //data: YourData,
-                success: function(data){
-                  console.log('succes: '+data);
-                }
-              });
             } else {
               $.post('/checkname?name='+$("#user_name").val(),function(data){
                 if (data.name_exists) {
                   field.removeClass('correct').addClass('error');
-                  fieldWarning.html('<%= I18n.t(:user_exists) %>');
+                  if (curr_locale === 'ru') {
+                    fieldWarning.html('Такой пользователь уже есть');
+                  } else {
+                    fieldWarning.html('<%= I18n.t(:user_exists) %>');
+                  }
                 } else {
                   field.removeClass('error').addClass('correct');
                   fieldWarning.html('');

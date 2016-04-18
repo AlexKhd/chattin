@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>YAP - Photo Gallery | Chat <%= "#{current_user.name if current_user}" %></title>
+    <title>YAP - Photo Gallery | Chat <%= "#{current_user.name if current_user}" %> <%= I18n.locale %></title>
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
