@@ -26,13 +26,17 @@ $(document).ready(function() {
             } else {
               $.post('/checkname?name='+$("#user_name").val(),function(data){
                 if (data.name_exists) {
-                  field.removeClass('correct').addClass('error');
                   if (curr_locale === 'ru') {
                     console.log('user exists ru');
+                    console.log(curr_locale);
                     fieldWarning.html('Такой пользователь уже есть');
                   } else {
+                    console.log('user exists en');
+                    console.log(curr_locale);
                     fieldWarning.html('<%= I18n.t(:user_exists) %>');
                   }
+                  console.log('finally');
+                  field.removeClass('correct').addClass('error');
                 } else {
                   field.removeClass('error').addClass('correct');
                   fieldWarning.html('');
