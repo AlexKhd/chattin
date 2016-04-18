@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require i18n/translations
 //= require bootstrap-sprockets
 //= require websocket_rails/main
 //= require_tree .
