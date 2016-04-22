@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'chat', to: 'chats#chat'
 
   post '/checkname', to: 'users#checkname'
+  # get "users/:id", to: "profiles#show", as: "profile"
+  resources :profiles, only: [:show, :edit]
   resources :users, :chats, :photos
 
   resources :posts do

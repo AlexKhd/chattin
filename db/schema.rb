@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160405141258) do
+ActiveRecord::Schema.define(version: 20160419050102) do
 
   create_table "chats", force: :cascade do |t|
     t.string   "ip_addr",    limit: 255
@@ -72,6 +72,23 @@ ActiveRecord::Schema.define(version: 20160405141258) do
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id",            limit: 4
+    t.string   "name",               limit: 255
+    t.string   "city",               limit: 255
+    t.string   "status",             limit: 255
+    t.string   "rank",               limit: 255
+    t.integer  "rating",             limit: 4
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255
     t.datetime "created_at",                                          null: false
@@ -122,6 +139,7 @@ ActiveRecord::Schema.define(version: 20160405141258) do
   add_foreign_key "comments", "users"
   add_foreign_key "identities", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "profiles", "users"
   add_foreign_key "vote_posts", "posts"
   add_foreign_key "vote_posts", "users"
 end

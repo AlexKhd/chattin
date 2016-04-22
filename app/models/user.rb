@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   has_many :vote_posts, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  after_create :create_profile
+
   def self.search(name)
     where('name = ?', name).first if name
   end
@@ -60,5 +62,9 @@ class User < ActiveRecord::Base
 
   def set_admin
     update_attribute(:role, :admin)
+  end
+
+  def create_profile
+      Profile.create(user: self)
   end
 end

@@ -21,6 +21,10 @@ body {
   background-color: gray;
   font-size: 13px;
   line-height: 18px;
+  -webkit-transition: background-color 6s ease;
+  -moz-transition: background-color 6s ease;
+  -o-transition: background-color 6s ease;
+  transition: background-color 6s ease;
 }
 
 html {
@@ -313,6 +317,5 @@ table {
 
 #avatar img {
   display: inline;
-  border: 1px solid #414141;
-  border-radius: 15px;
+  border-radius: 50%;
 }

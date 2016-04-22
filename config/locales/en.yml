@@ -20,7 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  add_commen: tesssssss
+  access_denied: Access denied
   add_comment: Add comment
   best_photos: Top 5
   caption: Caption

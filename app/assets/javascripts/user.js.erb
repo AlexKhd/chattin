@@ -1,7 +1,9 @@
 $(document).ready(function() {
   'use strict';
 
-  var curr_locale = '<%= I18n.locale %>';
+  var curr_locale = 'ru';
+
+  // ' I18n.locale ';
   console.log('curr_locale aft init = ' + curr_locale);
   var signinValidate = (function($) {
 
@@ -30,7 +32,7 @@ $(document).ready(function() {
                   if (curr_locale === 'ru') {
                     console.log('user exists ru');
                     console.log(curr_locale);
-                    fieldWarning.html('Такой пользователь уже есть');
+                    fieldWarning.html('<%= I18n.t(:user_exists) %>');
                   } else {
                     console.log('user exists en');
                     console.log(curr_locale);

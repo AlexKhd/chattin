@@ -86,6 +86,10 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+    if @post.family?
+      redirect_to root_path, notice: t(:access_denied) if current_user && current_user.role == 'user'
+      redirect_to root_path, notice: t(:access_denied) if !current_user
+    end
   end
 
   def get_vote_btn_class
