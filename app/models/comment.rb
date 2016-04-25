@@ -2,7 +2,7 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :post
 
-  serialize :content
+  # serialize :content
 
   t = '/system/:class/:attachment/:id_partition/:style/:hash.:extension'
 

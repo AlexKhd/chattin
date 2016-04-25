@@ -11,7 +11,7 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(
-    app, debug: false, js_errors: false, timeout: 30, inspector: true
+    app, debug: false, js_errors: false, timeout: 120, inspector: true
   )
 end
 

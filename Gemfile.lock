@@ -192,6 +192,7 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
+    pg (0.18.4)
     poltergeist (1.9.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -357,6 +358,7 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   paperclip (~> 4.3)
+  pg
   poltergeist
   rails (= 4.2.5)
   rails-i18n (~> 4.0.0)

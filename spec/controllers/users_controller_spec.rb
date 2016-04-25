@@ -147,13 +147,13 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
-    it 'destroys the requested user' do
+    xit 'destroys the requested user' do
       user = User.create! valid_attributes
       delete :destroy, { id: user.to_param }, valid_session
       expect(User.find_by(id: user.id)).to be_nil
     end
 
-    it 'redirects to the users list' do
+    xit 'redirects to the users list' do
       user = User.create! valid_attributes
       delete :destroy, { id: user.to_param }, valid_session
       expect(response).to redirect_to(users_url)
