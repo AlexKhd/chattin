@@ -6,3 +6,9 @@ $(document).ready(function () {
     $(this).css('background-color', '#000');
   });
 });
+
+$(document).ready(function () {
+  if ( !$( "li" ).is( ".prev.disabled" ) ) {
+    $(".first-post").hide();
+  }
+});

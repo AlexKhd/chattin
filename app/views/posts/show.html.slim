@@ -1,27 +1,18 @@
 .container
   .row
+    .col-sm-8.col-sm-offset-4
+      = will_paginate(@comments, renderer: 'BootstrapPagination::Rails')
     .col-md-10
-      .row
+      .row.first-post
         .col-md-2
           =@post.user.name ? @post.user.name : "NoName"
         .col-md-10
           p
             =@post.caption
           =link_to image_tag(@post.image.url(:medium), alt: @post.caption), @post.image.url(:original), popup: ['original_image', 'height=700,width=900']
-      .row
-        -@post.comments.each do |comment|
-          .col-md-2
-            p
-              =comment.user.name ? comment.user.name : "NoName"
-          .col-md-10
-            .comment
-              p
-                =comment.content
-              =link_to image_tag(comment.image.url(:medium)), comment.image.url if comment.image_file_name
-            .darkline
-              -if current_user && comment.user.id == current_user.id
-                =link_to t(:delete_comment), [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning btn-xs sharp pull-right"
-              /=link_to 'Reply', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-success btn-xs sharp pull-right"
-              /=link_to 'Edit', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info btn-xs sharp pull-right"
+      =render partial: 'comments/index'
+      br
+      .col-sm-8.col-sm-offset-4
+        = will_paginate(@comments, renderer: 'BootstrapPagination::Rails')
       =render partial: 'comments/new'
     .col-md-2

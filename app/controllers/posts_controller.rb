@@ -75,7 +75,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    @comments = Comment.all
+    @paginate = Comment.paginate(page: params[:page], per_page: 5)
+    @comments = @paginate.all
   end
 
   private

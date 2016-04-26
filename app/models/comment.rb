@@ -2,8 +2,6 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :post
 
-  # serialize :content
-
   t = '/system/:class/:attachment/:id_partition/:style/:hash.:extension'
 
   has_attached_file :image,
