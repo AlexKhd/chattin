@@ -8,7 +8,8 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-  if ( !$( "li" ).is( ".prev.disabled" ) ) {
-    $(".first-post").hide();
+  // hide if prev enabled &
+  if ( !$( 'li' ).is( '.prev.disabled' ) && ( $( 'ul.pagination' ).length ) ) {
+    $('.first-post').hide();
   }
 });
