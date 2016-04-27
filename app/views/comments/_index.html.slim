@@ -1,6 +1,6 @@
 br
 .row
-  -@post.comments.each do |comment|
+  -@comments.each do |comment|
     .col-md-2
       p
         =comment.user.name ? comment.user.name : "NoName"

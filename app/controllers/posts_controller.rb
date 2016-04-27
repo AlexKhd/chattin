@@ -20,7 +20,6 @@ class PostsController < ApplicationController
     else
       @posts = @paginate.where(family: 0).all
     end
-    respond_with @posts
   end
 
   def new
@@ -75,8 +74,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    @paginate = Comment.paginate(page: params[:page], per_page: 5)
-    @comments = @paginate.all
+    @post = Post.find(params[:id])
+    @comments = @post.comments.paginate(page: params[:page], per_page: 5)
   end
 
   private
