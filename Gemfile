@@ -41,6 +41,7 @@ group :development do
 end
 
 group :test do
+  gem 'mysql2'
   gem 'capybara'
   gem 'poltergeist'
   gem 'database_cleaner', '~> 1.5'
