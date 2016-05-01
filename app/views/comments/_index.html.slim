@@ -10,7 +10,7 @@ br
           =comment.content
         =link_to image_tag(comment.image.url(:medium)), comment.image.url if comment.image_file_name
       .darkline
-        -if current_user && comment.user.id == current_user.id
+        -if current_user && comment.user.id == current_user.id || current_user.admin?
           =link_to t(:delete_comment), [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning btn-xs sharp pull-right"
         /=link_to 'Reply', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-success btn-xs sharp pull-right"
         /=link_to 'Edit', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info btn-xs sharp pull-right"
