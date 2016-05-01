@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :check_if_admin, only: [:index]
+  before_action :is_admin?, only: [:index]
+  # before_action :check_if_admin, except: [:create]
   before_action :set_user, only: [:show,
                                   :edit,
                                   :update,
@@ -99,7 +100,7 @@ end
     @user = User.find(params[:id])
   end
 
-  def check_if_admin
+  def is_admin?
     redirect_to root_path, notice: 'Access denied' unless
       current_user && current_user.admin?
   end

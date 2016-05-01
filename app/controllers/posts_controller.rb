@@ -74,7 +74,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
     @comments = @post.comments.paginate(page: params[:page], per_page: 5)
   end
 
@@ -85,7 +84,7 @@ class PostsController < ApplicationController
   end
 
   def set_post
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
     if @post.family?
       redirect_to root_path, notice: t(:access_denied) if current_user && current_user.role == 'user'
       redirect_to root_path, notice: t(:access_denied) if !current_user

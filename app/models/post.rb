@@ -1,4 +1,7 @@
 class Post < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :caption, use: :slugged
+
   validates :image, presence: true
   validates :caption, presence: true
 
