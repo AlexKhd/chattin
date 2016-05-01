@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @post = Post.find(params[:post_id])
+    @post = Post.friendly.find(params[:post_id])
     @comment = @post.comments.build(comment_params)
     @comment.user_id = current_user.id
     @comment.save!
