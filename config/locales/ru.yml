@@ -5,6 +5,7 @@ ru:
   caption: Название
   choose_picture: Выберите изображение
   confirm_email: Подтвердите Ваш e-mail
+  description: Описание
   Example_email: Пример - myemail@gmail.com
   Yet_another_portal: Yet another portal
   finish_registration: Завершить регистрацию
@@ -12,6 +13,7 @@ ru:
   Gallery: Фото
   login_first: Необходимо авторизоваться
   SlideShow: Слайдшоу
+  type_caption: Укажите название
   load_post: Загрузить
   Login: Войти
   Logout: Выйти

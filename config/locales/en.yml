@@ -26,6 +26,7 @@ en:
   caption: Caption
   choose_picture: Choose a picture
   confirm_email: Please confirm your e-mail
+  description: Description
   Example_email: Example - my_email@somesite.com
   Yet_another_portal: Yet another portal
   finish_registration: Finish registration
@@ -33,6 +34,7 @@ en:
   Gallery: Gallery
   login_first: Sorry, you have to login first
   SlideShow: Slide Show
+  type_caption: Type a caption
   load_post: Upload
   Login: Login
   Logout: Logout

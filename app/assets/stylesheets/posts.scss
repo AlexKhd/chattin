@@ -1,16 +1,6 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#posts {
-  p {
-    //margin: 13px 0 13px;
-  }
-  //left: 40px;
-  //position: relative;
-  //top: 100px;
-  //width: 95%;
-}
-
 .navbar-brand {
   a {
     color: #125688;
@@ -30,14 +20,10 @@
   margin: 0 auto;
 }
 
-#posts-sidebar {
-  //padding: 60px 15px;
-}
-
 .posts-wrapper {
-  //margin: 0 auto;
-  //max-width: 642px;
-  //width: 100%;
+  margin: 0 auto;
+  max-width: 642px;
+  width: 100%;
 }
 
 .post {
@@ -63,11 +49,10 @@
   padding: 24px 24px;
   font-size: 15px;
   line-height: 18px;
-
 }
 
 .form-wrapper {
-  width: 60%;
+  width: 90%;
   margin: 20px auto;
   background-color: #fff;
   padding: 40px;
@@ -194,4 +179,13 @@
     margin-right: 10px;
     color: white;
   }
+}
+
+#new_post {
+  background-color: #777E84;
+  padding: 40px;
+  border-radius: 4px;
+  border-color: #0B4376;
+  border-style: solid;
+  border-width: 1px;
 }

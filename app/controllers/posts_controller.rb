@@ -28,7 +28,7 @@ class PostsController < ApplicationController
 
   def upvote
     if current_user
-      @post = Post.find(params[:post_id])
+      @post = Post.friendly.find(params[:post_id])
       unless vote_result(@post) # user isn't allowed to vote twice
         @vote_post = current_user.vote_posts.build(value: 1, post: @post)
         @vote_post.save
@@ -43,7 +43,7 @@ class PostsController < ApplicationController
 
   def downvote
     if current_user
-      @post = Post.find(params[:post_id])
+      @post = Post.friendly.find(params[:post_id])
       unless vote_result(@post)
         @vote_post = current_user.vote_posts.build(value: -1, post: @post)
         @vote_post.save
