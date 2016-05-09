@@ -14,5 +14,4 @@
       p = post.caption
       -if user_signed_in? && current_user.id == post.user_id || user_signed_in? && current_user.email == Rails.application.secrets.admin_email
         = link_to t(:delete_post), post_path(post), remote: true, method: :delete, class: "btn btn-warning", type: "button", data: { confirm: "#{t(:delete_post)}?" }
-        = link_to t(:edit_post), post_path(post), remote: true, method: :delete, class: "btn btn-info", type: "button"
       = link_to t(:read_post), post_path(post), class: "pull-right"

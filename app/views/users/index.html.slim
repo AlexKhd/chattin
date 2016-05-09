@@ -1,11 +1,12 @@
 h1 Listing users
 
-table
+table.table.table-striped.table-responsive
   thead
     tr
       th Name
       th Email
       th Role
+      th LastSignIn
       th SignIn count
       th
       th
@@ -17,10 +18,11 @@ table
         td = user.name
         td = user.email
         td = user.role
+        td = user.current_sign_in_at
         td = user.sign_in_count
         td = link_to 'Show', user
         td = link_to 'Edit', edit_user_path(user)
-        td = link_to 'Destroy', user, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = link_to 'Destroy', user, data: {:confirm => 'Are you sure?'}, method: :delete
 
 br
 

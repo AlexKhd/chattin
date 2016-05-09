@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:destroy, :show]
   before_action :authenticate_user!, except: [:index, :upvote, :downvote, :show]
   before_action :get_vote_btn_class
+  after_action :send_news_email, only: [:create]
 
   respond_to :html
   respond_to :js
@@ -93,5 +94,18 @@ class PostsController < ApplicationController
 
   def get_vote_btn_class
     current_user ? @vote_btn_class = 'btn_vote' : @vote_btn_class = 'btn_vote opacity4'
+  end
+
+  def send_news_email
+    users_to_email = []
+    arel_table = Profile.arel_table
+    profiles_to_email = Profile.where(arel_table['news_email_sent_at'].lt(3.days.ago).
+      or(arel_table['news_email_sent_at'].eq(nil)))
+
+    profiles_to_email.each do |profile|
+      @user = User.find(profile.id)
+      UserMailer.news_email(@user).deliver_later
+      profile.update_attribute(:news_email_sent_at, Time.now)
+    end
   end
 end
