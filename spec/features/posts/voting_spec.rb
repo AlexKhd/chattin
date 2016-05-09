@@ -10,7 +10,7 @@ feature 'voting' do
     visit posts_path
 
     find('input.opacity4', match: :first).trigger('click')
-    expect(page).to have_field('user[email]')
+    expect(page).to have_field('user[login]')
   end
 
   scenario 'check positive vote & not allowed to vote twice' do

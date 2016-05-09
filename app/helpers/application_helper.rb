@@ -24,4 +24,8 @@ module ApplicationHelper
   def is_admin?
     current_user.email == Rails.application.secrets.admin_email if @current_user
   end
+
+  def when_posted(date)
+    " #{time_ago_in_words(date)} #{t(:ago)}"
+  end
 end

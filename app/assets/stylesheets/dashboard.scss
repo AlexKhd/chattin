@@ -320,3 +320,11 @@ table {
   display: inline;
   border-radius: 50%;
 }
+
+.prev.disabled {
+  display: none;
+}
+
+.next.disabled {
+  display: none;
+}

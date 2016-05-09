@@ -10,7 +10,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'slim-rails'
-gem 'devise'
+gem 'devise', '~> 4.0.0'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'bootstrap-sass', '~> 3.3.3'
@@ -30,6 +30,7 @@ group :development, :test do
   gem 'spring'
   gem 'rspec-rails'
   gem 'faker', '~> 1.6'
+  gem 'letter_opener'
 end
 
 group :development do

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :check_if_admin, only: [:index]
-  # before_action :check_if_admin, except: [:create]
+  before_action :authenticate_user!, only: [:show, :edit]
   before_action :set_user, only: [:show,
                                   :edit,
                                   :update,

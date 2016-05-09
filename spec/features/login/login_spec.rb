@@ -10,7 +10,7 @@ feature 'user login' do
     error_message = 'This field is required'
     expect(find('#new_user')).to have_selector('.login-help', text: error_message, count: 2)
 
-    fill_in 'user_email', with: email
+    fill_in 'user_login', with: email
     expect(find('#new_user')).to have_selector('.login-help', text: error_message)
     fill_in 'user_password', with: 'a_pwd'
 
@@ -28,12 +28,12 @@ feature 'user login' do
   scenario 'failed with invalid data' do
     visit '/users/sign_in'
 
-    fill_in 'user_email', with: email
+    fill_in 'user_login', with: email
     fill_in 'user_password', with: 'invalid_password'
 
     find('input[type="submit"]').click
 
-    error_message = 'Invalid email or password'
+    error_message = 'Invalid login or password'
     expect(page).to have_selector '.alert', text: error_message
   end
 
@@ -43,7 +43,7 @@ feature 'user login' do
     user.confirmed_at = Time.now
     user.save
     # login_as(user, scope: :user)
-    fill_in 'user_email', with: user.email
+    fill_in 'user_login', with: user.email
     fill_in 'user_password', with: user.password
     find('input[type="submit"]').click
 

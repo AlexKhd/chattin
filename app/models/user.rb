@@ -4,20 +4,44 @@ class User < ActiveRecord::Base
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
 
-  devise :database_authenticatable, :registerable, :omniauthable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+  devise :database_authenticatable,
+    :registerable,
+    :omniauthable,
+    :recoverable,
+    :rememberable,
+    :trackable,
+    :validatable,
+    :confirmable,
+    authentication_keys: [:login]
 
   validates_format_of :email, without: TEMP_EMAIL_REGEX, on: :update
+  validates :name, presence: true, uniqueness: { case_sensitive: false }
 
   has_many :posts, dependent: :destroy
   has_many :identities, dependent: :destroy
   has_many :vote_posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_one :profile, dependent: :destroy
 
   after_create :create_profile
 
+  attr_accessor :login
+
   def self.search(name)
     where('name = ?', name).first if name
+  end
+
+  def self.find_first_by_auth_conditions(warden_conditions)
+    conditions = warden_conditions.dup
+    if login = conditions.delete(:login)
+      where(conditions).where(['lower(name) = :value OR lower(email) = :value', { value: login.downcase }]).first
+    else
+      if conditions[:name].nil?
+        where(conditions).first
+      else
+        where(name: conditions[:name]).first
+      end
+    end
   end
 
   def self.find_for_oauth(auth, signed_in_resource = nil)

@@ -1,6 +1,7 @@
 ru:
   access_denied: Доступ запрещен
   add_comment: Добавить комментарий
+  ago: назад
   best_photos: Лучшие
   caption: Название
   choose_picture: Выберите изображение
@@ -12,6 +13,7 @@ ru:
   Home: Главная
   Gallery: Фото
   login_first: Необходимо авторизоваться
+  name_or_email: Имя или e-mail
   SlideShow: Слайдшоу
   type_caption: Укажите название
   load_post: Загрузить
@@ -20,6 +22,7 @@ ru:
   Chat: Чат
   email_to_author: обратная связь
   Posts: Фотографии
+  published_by: Создал
   new_post: Добавить фото
   delete_post: Удалить фото
   delete_comment: Удалить комментарий

@@ -22,6 +22,7 @@
 en:
   access_denied: Access denied
   add_comment: Add comment
+  ago: ago
   best_photos: Top 5
   caption: Caption
   choose_picture: Choose a picture
@@ -33,6 +34,7 @@ en:
   Home: Home
   Gallery: Gallery
   login_first: Sorry, you have to login first
+  name_or_email: Name or e-mail
   SlideShow: Slide Show
   type_caption: Type a caption
   load_post: Upload
@@ -41,6 +43,7 @@ en:
   Chat: Chat
   email_to_author: email to author
   Posts: Posts
+  published_by: Published by
   new_post: New Post
   delete_post: Delete Post
   delete_comment: Delete comment

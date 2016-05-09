@@ -1,0 +1,8 @@
+.col-sm-6.col-sm-offset-3
+  h3 = t(:forgot_your_password?)
+  = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+    .form-inputs
+      = f.input :login, required: true, autofocus: true, label: 'Имя пользователя или email'
+    .form-actions
+      = f.button :submit, t('devise.mailer.btn_reset_password_instructions.subject')
+  = render "devise/shared/links"

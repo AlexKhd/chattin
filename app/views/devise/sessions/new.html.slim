@@ -6,7 +6,7 @@
       br
   = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .field
-      = f.input :email, autofocus: true, placeholder: t(:email), label: false
+      = f.input :login, autofocus: true, placeholder: t(:name_or_email), label: false
       .login-help
         .opacity5 = t(:required_field)
     .field

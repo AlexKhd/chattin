@@ -1,16 +1,16 @@
 br
 .row
-  -@comments.each do |comment|
+  - @comments.each do |comment|
     .col-md-2
       p
-        =comment.user.name ? comment.user.name : "NoName"
+        = comment.user.name ? comment.user.name : "NoName"
     .col-md-10.max-width670
       .comment
         p
-          =comment.content
-        =link_to image_tag(comment.image.url(:medium)), comment.image.url, :target => "_blank" if comment.image_file_name
+          = comment.content
+        = link_to image_tag(comment.image.url(:medium)), comment.image.url, :target => "_blank" if comment.image_file_name
       .darkline
-        -if current_user && comment.user.id == current_user.id || current_user.admin?
+        -if current_user && comment.user.id == current_user.id || current_user && current_user.admin?
           =link_to t(:delete_comment), [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning btn-xs sharp pull-right"
         /=link_to 'Reply', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-success btn-xs sharp pull-right"
         /=link_to 'Edit', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info btn-xs sharp pull-right"

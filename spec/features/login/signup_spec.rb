@@ -45,18 +45,4 @@ feature 'user signup' do
     visit '/'
     expect(page).to have_link 'Login'
   end
-
-  scenario 'success for correct user' do
-    visit '/users/sign_in'
-    user = FactoryGirl.create(:user, :confirmed)
-    user.confirmed_at = Time.now
-    user.save
-    # login_as(user, scope: :user)
-    fill_in 'user_email', with: user.email
-    fill_in 'user_password', with: user.password
-    find('input[type="submit"]').click
-
-    visit '/'
-    expect(page).to have_link 'Logout'
-  end
 end

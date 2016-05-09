@@ -1,10 +1,105 @@
 $(document).ready(function() {
+  if (window.location.pathname == '/users/sign_in') {
   'use strict';
 
   var curr_locale = 'ru';
 
-  // ' I18n.locale ';
-  console.log('curr_locale aft init = ' + curr_locale);
+  var signinValidate = (function($) {
+
+    var formFields = $('#new_user > .field'),
+        formSubmitButton = $('#new_user input[type="submit"]');
+
+    var formValidate,
+        submitValidate,
+        initialize;
+
+    formValidate = function(fieldset) {
+      var field = fieldset.find('.form-group input'),
+          fieldId = field.attr('id'),
+          fieldValue = field.val(),
+          fieldWarning = fieldset.find('.login-help div');
+
+      switch (fieldId) {
+        case 'user_login':
+          if (fieldValue) {
+            if (fieldValue.length < 3) {
+              field.removeClass('correct').addClass('error');
+              fieldWarning.html('<%= I18n.t(:user_three) %>');
+            } else {
+              field.removeClass('error').addClass('correct');
+              fieldWarning.html('');
+            }
+          } else {
+            field.removeClass('correct').addClass('error');
+            fieldWarning.html('<%= I18n.t(:required_field) %>');
+          }
+          break;
+        case 'user_password':
+          if (fieldValue) {
+            if (fieldValue.length < 6) {
+              field.removeClass('correct').addClass('error');
+              fieldWarning.html('<%= I18n.t(:passw_six) %>');
+            } else {
+              field.removeClass('error').addClass('correct');
+              fieldWarning.html('');
+            }
+          } else {
+            field.removeClass('correct').addClass('error');
+            fieldWarning.html('<%= I18n.t(:required_field) %>');
+          }
+          break;
+        default:
+          if (fieldValue) {
+            field.addClass('correct');
+          } else {
+            field.removeClass('correct');
+          }
+      }
+    };
+
+    submitValidate = function() {
+      return ($('#user_login').hasClass('correct') && $('#user_password').hasClass('correct'));
+    };
+
+    $('#new_user').submit(function(e) {
+      e.preventDefault();
+      if (submitValidate()) {
+        this.submit();
+      }
+    });
+
+    initialize = function() {
+      formFields.on('input', function(e) {
+        formValidate($(this));
+          if (submitValidate()) {
+            formSubmitButton.removeClass('disabled');
+          } else {
+            formSubmitButton.addClass('disabled');
+          }
+      });
+      formSubmitButton.on('mouseover', function(e) {
+        $(this);
+      });
+    };
+
+    return {
+      init: initialize
+    };
+  }(jQuery));
+
+  signinValidate.init();
+  $('#user_login').trigger('input');
+  $('#user_password').trigger('input');
+};
+});
+
+
+$(document).ready(function() {
+  if (window.location.pathname == '/users/sign_up') {
+  'use strict';
+
+  var curr_locale = 'ru';
+
   var signinValidate = (function($) {
 
     var formFields = $('#new_user > .field'),
@@ -105,7 +200,10 @@ $(document).ready(function() {
     };
 
     submitValidate = function() {
-      return ($('#user_password').hasClass('correct') && $('#user_email').hasClass('correct'));
+      return ($('#user_name').hasClass('correct') &&
+        $('#user_email').hasClass('correct') &&
+        $('#user_password').hasClass('correct') &&
+        $('#user_password_confirmation').hasClass('correct'));
     };
 
     $('#new_user').submit(function(e) {
@@ -139,4 +237,5 @@ $(document).ready(function() {
   $('#user_name').trigger('input');
   $('#user_password').trigger('input');
   $('#user_password_confirmation').trigger('input');
+};
 });
