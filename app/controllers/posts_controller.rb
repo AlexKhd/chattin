@@ -97,7 +97,6 @@ class PostsController < ApplicationController
   end
 
   def send_news_email
-    users_to_email = []
     arel_table = Profile.arel_table
     profiles_to_email = Profile.where(arel_table['news_email_sent_at'].lt(3.days.ago).
       or(arel_table['news_email_sent_at'].eq(nil)))

@@ -32,4 +32,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_in) { |u| u.permit(:login, :name, :email, :password, :remember_me) }
     devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :email, :password, :password_confirmation, :current_password) }
   end
+
+  def check_if_admin
+    redirect_to root_path, notice: 'Access denied' unless
+      current_user && current_user.admin?
+  end
 end

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   post '/checkname', to: 'users#checkname'
   # get "users/:id", to: "profiles#show", as: "profile"
-  resources :profiles, only: [:show, :edit]
+  resources :profiles, only: [:show, :edit, :index]
   resources :users, :chats, :photos
 
   resources :posts do

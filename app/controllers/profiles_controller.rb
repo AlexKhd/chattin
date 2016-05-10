@@ -1,17 +1,14 @@
 class ProfilesController < ApplicationController
-	before_filter :authenticate_user!
+	before_action :check_if_admin, only: [:index]
+	before_action :authenticate_user!
+	before_action :set_profile, only: [:show]
 
 	def index
 		@profiles = Profile.all
 	end
 
 	def show
-		if current_user.present?
-			@profile = Profile.find(params[:id])
-		else
-  		@profile = Profile.find(params[:id])
-  		@profiles = Profile.where('id != ?', current_user.id)
-  	end
+
 	end
 
 	def new
@@ -33,6 +30,9 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-
   end
+
+	def set_profile
+		@profile = Profile.find(params[:id])
+	end
 end

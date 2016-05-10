@@ -99,11 +99,6 @@ end
     @user = User.find(params[:id])
   end
 
-  def check_if_admin
-    redirect_to root_path, notice: 'Access denied' unless
-      current_user && current_user.admin?
-  end
-
   def user_params
     accessible = [:name, :email, :role]
     accessible << [:password, :password_confirmation] unless

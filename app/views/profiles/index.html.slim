@@ -1,0 +1,26 @@
+h1 Listing profiles
+
+table.table.table-striped.table-responsive
+  thead
+    tr
+      th ID
+      th Name
+      th Email
+      th City
+      th Rank
+      th Sent at
+      th
+      th
+      th
+
+  tbody
+    - @profiles.each do |profile|
+      tr
+        td = profile.id
+        td = profile.name
+        td = profile.status
+        td = profile.city
+        td = profile.rank
+        td = profile.news_email_sent_at
+        td = link_to 'Show', profile
+        td = link_to 'Edit', edit_user_path(profile)
