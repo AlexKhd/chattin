@@ -4,9 +4,8 @@
     .col-sm-8
       p = t(:Name) + ': ' + (@profile.name ? @profile.name : t(:Unknown))
       p = t('profile.City') + ': ' + (@profile.city ? @profile.city : t(:Unknown))
-      p = t('profile.Rating') + ': ' + (@profile.rating ? @profile.rating.round.to_s : '0')
+      p = t('profile.Rating') + ': ' + @profile.rating
       - if current_user && current_user.admin?
         = @profile.news_email_sent_at
-      /if @user.display_email
     .col-sm-4
       /.avatar = image_tag avatar_url(@user)

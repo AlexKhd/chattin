@@ -8,7 +8,7 @@ class ProfilesController < ApplicationController
 	end
 
 	def show
-
+		@profile.update_attribute(:rating, 0) unless @profile.rating
 	end
 
 	def new
