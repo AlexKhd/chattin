@@ -7,6 +7,7 @@ table.table.table-striped.table-responsive
       th Name
       th Email
       th City
+      th Rating
       th Rank
       th Sent at
       th
@@ -20,6 +21,7 @@ table.table.table-striped.table-responsive
         td = profile.name
         td = profile.status
         td = profile.city
+        td = profile.rating.round.to_s if profile.rating
         td = profile.rank
         td = profile.news_email_sent_at
         td = link_to 'Show', profile

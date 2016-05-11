@@ -8,8 +8,9 @@
 
 #addComment {
   h4 {
-    margin: 0;
+    margin: 0 0 8px 0;
   }
+  padding: 8px 0;
   margin-top: 40px;
   background-color: #CDC9C9;
 }
@@ -20,15 +21,36 @@
   }
 }
 
+.comment-wrapper {
+  border: 1px solid #4C5959;
+  margin-bottom: 2px;
+  background-color: #CDC9C9;
+}
+
 .comment {
-	border-bottom:thick double #423F3F;
-  margin-top: 10px;
-  // max-width: 640px;
+  // margin-top: 10px;
+  // border-bottom: 1px solid #4C5959;
   p {
     // max-width: 640px;
   }
 }
 
 .max-width670 {
-  max-width: 670px;
+  max-width: 672px;
+}
+
+.comment-counter {
+  float: right;
+  min-width: 30px;
+  text-align: center;
+  font-size: 14px;
+  padding-top: 4px;
+}
+
+.comment-up {
+  float: right;
+}
+
+.comment-down {
+  float: right;
 }

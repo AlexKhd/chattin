@@ -90,5 +90,7 @@ class User < ActiveRecord::Base
 
   def create_profile
       Profile.create(user: self)
+      profile = Profile.last
+      profile.update_attribute(:rating, 0)
   end
 end

@@ -1,0 +1,6 @@
+<% if current_user %>
+  $('div#<%= dom_id(@comment) %>:first').
+    replaceWith('<%= j render "comment", comment: @comment %>');
+<% else %>
+  alert("<%= "#{t(:login_first)}" %>")
+<% end %>

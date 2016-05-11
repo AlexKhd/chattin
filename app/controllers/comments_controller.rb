@@ -1,34 +1,29 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
-  # GET /comments
-  # GET /comments.json
+  respond_to :html
+  respond_to :js
+
   def index
     @comments = Comment.all
   end
 
-  # GET /comments/1
-  # GET /comments/1.json
   def show
   end
 
-  # GET /comments/new
   def new
     @comment = Comment.new
   end
 
-  # GET /comments/1/edit
   def edit
   end
 
-  # POST /comments
-  # POST /comments.json
   def create
     @post = Post.friendly.find(params[:post_id])
     @comment = @post.comments.build(comment_params)
     @comment.user_id = current_user.id
     @comment.save!
-    redirect_to post_path(@post)
+    redirect_to(:back)
 
     # respond_to do |format|
     #  if @comment.save
@@ -42,8 +37,6 @@ class CommentsController < ApplicationController
     # end
   end
 
-  # PATCH/PUT /comments/1
-  # PATCH/PUT /comments/1.json
   def update
     respond_to do |format|
       if @comment.update(comment_params)
@@ -55,8 +48,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  # DELETE /comments/1
-  # DELETE /comments/1.json
   def destroy
     @post = Post.friendly.find(params[:post_id])
     @comment.destroy
@@ -65,6 +56,36 @@ class CommentsController < ApplicationController
     #  format.html { redirect_to comments_url, notice: 'Comment destroyed.' }
     #  format.json { head :no_content }
     # end
+  end
+
+  def upvote
+    if current_user
+      @comment = Comment.find(params[:comment_id])
+      profile = Profile.find(@comment.user_id)
+      #unless vote_result(@post) # user isn't allowed to vote twice
+      #  @vote_post = current_user.vote_posts.build(value: 1, post: @post)
+      #  @vote_post.save
+        @comment.upvote(profile)
+      #end
+      respond_with(@comment)
+    else
+      render js: "window.location = '#{new_user_session_path}';"
+    end
+  end
+
+  def downvote
+    if current_user
+      @comment = Comment.find(params[:comment_id])
+      profile = Profile.find(@comment.user_id)
+      #unless vote_result(@post) # user isn't allowed to vote twice
+      #  @vote_post = current_user.vote_posts.build(value: 1, post: @post)
+      #  @vote_post.save
+        @comment.downvote(profile)
+      #end
+      respond_with(@comment)
+    else
+      render js: "window.location = '#{new_user_session_path}';"
+    end
   end
 
   private

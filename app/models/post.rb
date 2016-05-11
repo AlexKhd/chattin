@@ -20,12 +20,14 @@ class Post < ActiveRecord::Base
   has_many :vote_posts, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  def upvote
+  def upvote(profile)
     update_attribute(:rating, self.rating + 1)
+    profile.update_attribute(:rating, profile.rating + 1)
   end
 
-  def downvote
+  def downvote(profile)
     update_attribute(:rating, self.rating - 1)
+    profile.update_attribute(:rating, profile.rating - 1)
   end
 
   def self.best

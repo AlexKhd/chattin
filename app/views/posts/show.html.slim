@@ -1,17 +1,23 @@
 .container
   .row
     .col-sm-12.text-center
-      = will_paginate(@comments, renderer: 'BootstrapPagination::Rails')
+      = will_paginate(@comments, renderer: 'BootstrapPagination::Rails',
+        inner_window: 2, outer_window: 1)
     .col-md-12
       .row.first-post
         .col-md-2
-          =@post.user.name ? @post.user.name : "NoName"
+          = @post.user.name ? @post.user.name : "NoName"
         .col-md-10
           p
-            h3=link_to @post.caption, url_for
-          =link_to image_tag(@post.image.url(:medium), alt: @post.caption), @post.image.url(:original), popup: ['original_image', 'height=700,width=900']
-      =render partial: 'comments/index'
+            h3 = link_to @post.caption, url_for
+          = link_to image_tag(@post.image.url(:medium), alt: @post.caption),
+            @post.image.url(:original), popup: ['original_image', 'height=700,width=900']
+      br
+      .row
+        - @comments.each do |comment|
+          = render 'comments/comment', comment: comment
       br
     .col-sm-12.text-center
-      = will_paginate(@comments, renderer: 'BootstrapPagination::Rails')
-  =render partial: 'comments/new'
+      = will_paginate(@comments, renderer: 'BootstrapPagination::Rails',
+        inner_window: 2, outer_window: 1)
+  = render partial: 'comments/new'

@@ -19,6 +19,7 @@ ru:
   load_post: Загрузить
   Login: Войти
   Logout: Выйти
+  Name: Имя
   Chat: Чат
   email_to_author: обратная связь
   Posts: Фотографии
@@ -42,6 +43,7 @@ ru:
   profile_updated: Ваш профиль обновлен
   remember_me: Запомнить меня
   required_field: Обязательное поле
+  Unknown: Неизвестно
   Welcome: Добро пожаловать
   You_can_confirm_your_account_email_through_the_link_below: Перейдите по ссылке ниже для подтверждения Вашего e-mail
   Confirm_my_account: Подтвердить e-mail
@@ -70,3 +72,7 @@ ru:
     login: Вход
     register: Регистрация
     name: Имя
+  profile:
+    user_profile: Личный кабинет
+    City: Город
+    Rating: Рейтинг

@@ -1,5 +1,5 @@
 .col-md-10.col-md-offset-1
-  #addComment
+  #addComment.text-center
     -if current_user
       h4 = t(:add_comment)
       = simple_form_for([@post, @post.comments.build], html: { multipart: true }) do |f|

@@ -40,6 +40,7 @@ en:
   load_post: Upload
   Login: Login
   Logout: Logout
+  Name: Name
   Chat: Chat
   email_to_author: email to author
   Posts: Posts
@@ -63,6 +64,7 @@ en:
   profile_updated: Your profile was successfully updated.
   remember_me: Remember me
   required_field: This field is required
+  Unknown: Unknown
   Welcome: Welcome
   You_can_confirm_your_account_email_through_the_link_below: You can confirm your account email through the link below
   Confirm_my_account: Confirm my account
@@ -91,3 +93,7 @@ en:
     login: Log in
     registration: Registration
     name: Name
+  profile:
+    user_profile: User profile
+    City: City
+    Rating: Rating

@@ -15,6 +15,11 @@ Rails.application.routes.draw do
     post 'downvote'
   end
 
+  resources :comments do
+    get 'upvote'
+    get 'downvote'
+  end
+
   resources :chats
 
   get 'slideshow', to: 'posts#slider'

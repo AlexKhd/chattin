@@ -1,13 +1,12 @@
 .container
   .col-sm-10.col-sm-offset-1.col-lg-8.col-lg-offset-2
+    h4.text-center = t('profile.user_profile')
     .col-sm-8
-      h4 User profile
-      h4.text-center = @profile.name
-      h5.text-center = @profile.city
+      p = t(:Name) + ': ' + (@profile.name ? @profile.name : t(:Unknown))
+      p = t('profile.City') + ': ' + (@profile.city ? @profile.city : t(:Unknown))
+      p = t('profile.Rating') + ': ' + (@profile.rating ? @profile.rating.round.to_s : '0')
       - if current_user && current_user.admin?
-        h5 = @profile.news_email_sent_at
+        = @profile.news_email_sent_at
       /if @user.display_email
     .col-sm-4
       /.avatar = image_tag avatar_url(@user)
-
-=link_to t(:edit), edit_profile_path, class: "btn btn-info"

@@ -15,11 +15,12 @@ feature 'voting' do
 
   scenario 'check positive vote & not allowed to vote twice' do
     post
-    login_as(user, scope: :user)
+    login_as user, scope: :user
     visit posts_path
     expect(page).to have_css('.counter p', text: '0')
 
     find("input[value='+']").click
+    wait_for_ajax
     expect(page).to have_css('.counter p', text: '1')
     expect(page).to have_selector("input.voted_pos[value='+']")
 
@@ -29,11 +30,12 @@ feature 'voting' do
 
   scenario 'check negative vote & not allowed to vote twice' do
     post
-    login_as(user, scope: :user)
+    login_as user, scope: :user
     visit posts_path
     expect(page).to have_css('.counter p', text: '0')
 
     find("input[value='-']").click
+    wait_for_ajax
     expect(page).to have_css('.counter p', text: '-1')
     expect(page).to have_selector("input.voted_neg[value='-']")
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509184250) do
+ActiveRecord::Schema.define(version: 20160511025751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,9 +96,9 @@ ActiveRecord::Schema.define(version: 20160509184250) do
     t.string   "city",               limit: 255
     t.string   "status",             limit: 255
     t.string   "rank",               limit: 255
-    t.integer  "rating"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.decimal  "rating",                         precision: 9, scale: 2
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
     t.string   "image_file_name",    limit: 255
     t.string   "image_content_type", limit: 255
     t.integer  "image_file_size"
