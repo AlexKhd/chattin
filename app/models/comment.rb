@@ -1,6 +1,7 @@
 class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :post
+  has_many :vote_comments, dependent: :destroy
 
   t = '/system/:class/:attachment/:id_partition/:style/:hash.:extension'
 

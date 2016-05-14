@@ -1,14 +1,15 @@
-.col-md-10.col-md-offset-1
-  #addComment.text-center
-    -if current_user
-      h4 = t(:add_comment)
-      = simple_form_for([@post, @post.comments.build], html: { multipart: true }) do |f|
-        = f.text_area :content
-        p
-          = f.file_field :image, class: 'btn'
-        p
-          = f.submit t(:add_comment), class: 'btn btn-success btn-xs'
-    -else
-      = t('registration.text',
-        to_login: link_to(t('registration.to_login'), new_user_session_path),
-        to_register: link_to(t('registration.to_register'), new_user_registration_path)).html_safe
+.row
+  .col-md-10.col-md-offset-1
+    #addComment.text-center
+      -if current_user
+        h4 = t(:add_comment)
+        = simple_form_for([@post, @post.comments.build], html: { multipart: true }) do |f|
+          = f.text_area :content
+          p
+            = f.file_field :image, class: 'btn'
+          p
+            = f.submit t(:add_comment), class: 'btn btn-success btn-xs'
+      -else
+        = t('registration.text',
+          to_login: link_to(t('registration.to_login'), new_user_session_path),
+          to_register: link_to(t('registration.to_register'), new_user_registration_path)).html_safe

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511025751) do
+ActiveRecord::Schema.define(version: 20160512070103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -143,6 +143,17 @@ ActiveRecord::Schema.define(version: 20160511025751) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "vote_comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "comment_id"
+    t.integer  "value",      default: 1, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "vote_comments", ["comment_id"], name: "index_vote_comments_on_comment_id", using: :btree
+  add_index "vote_comments", ["user_id"], name: "index_vote_comments_on_user_id", using: :btree
+
   create_table "vote_posts", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "post_id"
@@ -160,6 +171,8 @@ ActiveRecord::Schema.define(version: 20160511025751) do
   add_foreign_key "identities", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "profiles", "users"
+  add_foreign_key "vote_comments", "comments"
+  add_foreign_key "vote_comments", "users"
   add_foreign_key "vote_posts", "posts"
   add_foreign_key "vote_posts", "users"
 end

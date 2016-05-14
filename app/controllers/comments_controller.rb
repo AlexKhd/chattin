@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  include CommentsHelper
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
@@ -62,11 +63,11 @@ class CommentsController < ApplicationController
     if current_user
       @comment = Comment.find(params[:comment_id])
       profile = Profile.find(@comment.user_id)
-      #unless vote_result(@post) # user isn't allowed to vote twice
-      #  @vote_post = current_user.vote_posts.build(value: 1, post: @post)
-      #  @vote_post.save
+      unless comment_voted?(@comment) # user isn't allowed to vote twice
+        @vote_comment = current_user.vote_comments.build(value: 1, comment: @comment)
+        @vote_comment.save
         @comment.upvote(profile)
-      #end
+      end
       respond_with(@comment)
     else
       render js: "window.location = '#{new_user_session_path}';"
@@ -77,11 +78,11 @@ class CommentsController < ApplicationController
     if current_user
       @comment = Comment.find(params[:comment_id])
       profile = Profile.find(@comment.user_id)
-      #unless vote_result(@post) # user isn't allowed to vote twice
-      #  @vote_post = current_user.vote_posts.build(value: 1, post: @post)
-      #  @vote_post.save
+      unless comment_voted?(@comment)
+        @vote_comment = current_user.vote_comments.build(value: -1, comment: @comment)
+        @vote_comment.save
         @comment.downvote(profile)
-      #end
+      end
       respond_with(@comment)
     else
       render js: "window.location = '#{new_user_session_path}';"
@@ -96,6 +97,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:user_id, :post_id, :content, :image)
+    params.require(:comment).permit(:content, :image)
   end
 end

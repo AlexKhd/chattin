@@ -6,7 +6,7 @@
   .posts-wrapper.row.col-md-7
     -@posts = @posts.paginate(page: params[:page], per_page: 5).order('id DESC')
     = will_paginate(@posts, renderer: 'BootstrapPagination::Rails')
-    -@posts.each do |post|
+    - @posts.each do |post|
       = render post
     = will_paginate(@posts, renderer: 'BootstrapPagination::Rails')
   #top-images.col-md-3

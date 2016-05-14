@@ -24,7 +24,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.new
   end
 
   def upvote
@@ -84,14 +84,14 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image, :caption, :user_id, :family)
+    params.require(:post).permit(:image, :caption, :family)
   end
 
   def set_post
     @post = Post.friendly.find(params[:id])
     if @post.family?
       redirect_to root_path, notice: t(:access_denied) if current_user && current_user.role == 'user'
-      redirect_to root_path, notice: t(:access_denied) if !current_user
+      redirect_to root_path, notice: t(:access_denied) unless current_user
     end
   end
 

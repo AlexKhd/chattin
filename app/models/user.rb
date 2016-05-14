@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   has_many :vote_posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_one :profile, dependent: :destroy
+  has_many :vote_comments, dependent: :destroy
 
   after_create :create_profile
 

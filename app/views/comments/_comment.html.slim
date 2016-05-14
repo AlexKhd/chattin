@@ -1,19 +1,20 @@
 = div_for comment do
-  .col-md-2
-    p
-      = comment.user.name ? comment.user.name : "NoName"
-  .col-md-10.max-width670.comment-wrapper
-    br
-    = l(comment.created_at, format: :short)
-    .comment-up = link_to image_tag('thumb_up25.png'), comment_upvote_path(comment), remote: true
-    .comment-counter = comment.rating
-    .comment-down = link_to image_tag('thumb_down25.png'), comment_downvote_path(comment), remote: true
-    .comment-body
+  .row
+    .col-md-2
       p
-        = comment.content
-      = link_to image_tag(comment.image.url(:medium)), comment.image.url, :target => "_blank" if comment.image_file_name
-    .darkline
-      -if current_user && comment.user.id == current_user.id || current_user && current_user.admin?
-        =link_to t(:delete_comment), [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning btn-xs sharp pull-right"
-      /=link_to 'Reply', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-success btn-xs sharp pull-right"
-      /=link_to 'Edit', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info btn-xs sharp pull-right"
+        = comment.user.name ? comment.user.name : "NoName"
+    .col-md-10.max-width670.comment-wrapper
+      br
+      = l(comment.created_at, format: :short)
+      .comment-up = link_to image_tag('thumb_up25.png'), comment_upvote_path(comment), remote: true
+      .comment-counter = comment.rating
+      .comment-down = link_to image_tag('thumb_down25.png'), comment_downvote_path(comment), remote: true
+      .comment-body
+        p
+          = comment.content
+        = link_to image_tag(comment.image.url(:medium)), comment.image.url, :target => "_blank" if comment.image_file_name
+      .darkline
+        -if current_user && comment.user.id == current_user.id || current_user && current_user.admin?
+          =link_to t(:delete_comment), [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning btn-xs sharp pull-right"
+        /=link_to 'Reply', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-success btn-xs sharp pull-right"
+        /=link_to 'Edit', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info btn-xs sharp pull-right"
