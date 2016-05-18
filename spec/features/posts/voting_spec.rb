@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'voting' do
+feature 'user vote' do
   let(:caption)     { Faker::Lorem.sentence }
   let(:user)        { FactoryGirl.create(:user, :confirmed) }
   let(:post)        { FactoryGirl.create(:post, user: user) }

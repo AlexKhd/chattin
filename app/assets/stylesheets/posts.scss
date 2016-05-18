@@ -19,7 +19,6 @@
 
 .posts-wrapper {
   max-width: 642px;
-  width: 100%;
 }
 
 .post {
@@ -30,6 +29,21 @@
   border-width: 1px;
   margin-bottom: 40px;
   box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.3);
+}
+
+.post-first {
+  max-width: 642px;
+  background-color: #444A4F;
+  border-color: #0B4376;
+  border-style: solid;
+  border-radius: 3px;
+  border-width: 1px;
+  margin-bottom: 40px;
+  box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.3);
+  h4 {
+    padding: 8px 0 12px 8px;
+    margin-bottom: 0px;
+  }
 }
 
 .image {
@@ -165,7 +179,7 @@
   background: red;
 }
 
-#after-post {
+.after-post {
   min-height: 50px;
   a {
     color: #96989A;

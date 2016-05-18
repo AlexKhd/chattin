@@ -1,22 +1,17 @@
-# See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+require 'support/omniauth_test_helper.rb'
+
 RSpec.configure do |config|
+  config.include OmniauthTestHelper
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
 
-  config.mock_with :rspec do |mocks|
-    mocks.verify_partial_doubles = true
-
-    config.before(:each) do
-      if Capybara.current_driver == :poltergeist
-        page.driver.add_headers('Accept-Language' => 'en')
-      end
-      # expect(page).not_to have_errors if example.metadata[:js]
-    end
-  end
-
   config.filter_run :focus
   config.run_all_when_everything_filtered = true
+
+  config.mock_with :rspec do |mocks|
+    mocks.verify_partial_doubles = true
+  end
 
   # Allows RSpec to persist some state between runs in order to support
   # the `--only-failures` and `--next-failure` CLI options. We recommend
@@ -34,9 +29,6 @@ RSpec.configure do |config|
   # file, and it's useful to allow more verbose output when running an
   # individual spec file.
   if config.files_to_run.one?
-    # Use the documentation formatter for detailed output,
-    # unless a formatter has already been configured
-    # (e.g. via a command-line flag).
     config.default_formatter = 'doc'
   end
 

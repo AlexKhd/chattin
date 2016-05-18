@@ -1,21 +1,22 @@
 FactoryGirl.define do
-  factory :user do |u|
-    u.name 'John Doe'
-    u.sequence(:email) { |n| "person#{n}@example.com" }
-    u.password 'tester'
-    u.password_confirmation 'tester'
-    role 'user'
+  factory :user do
+    identities [
+    	FactoryGirl.build(:facebook)
+    ]
+    name 'John Doe'
+    sequence(:email) { |n| "person#{n}@example.com" }
+    password 'tester'
+    password_confirmation 'tester'
+    confirmed_at Date.today
   end
 
-  factory :admin, class: User do
+  trait :is_admin do
     name 'Admin'
-    sequence(:email) { |n| "person#{n}@example.com" }
     role 'admin'
   end
 
-  factory :family, class: User do
+  trait :is_family do
     name 'Family user'
-    sequence(:email) { |n| "person#{n}@example.com" }
     role 'family'
   end
 

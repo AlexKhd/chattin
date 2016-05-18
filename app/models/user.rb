@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
       email_is_verified = auth.info.email && (
         auth.info.verified || auth.info.verified_email
       )
-      email = auth.info.email if email_is_verified
+      email = auth.info.email # if email_is_verified
       user = User.where(email: email).first if email
 
       if user.nil?
@@ -66,6 +66,7 @@ class User < ActiveRecord::Base
         )
         user.skip_confirmation!
         user.save!
+        user
       end
     end
 

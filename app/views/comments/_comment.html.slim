@@ -1,14 +1,18 @@
 = div_for comment do
   .row
-    .col-md-2
-      p
+    .col-sm-2.col-xs-2
         = comment.user.name ? comment.user.name : "NoName"
-    .col-md-10.max-width670.comment-wrapper
-      br
+    .col-sm-10.col-xs-10.max-width670.comment-wrapper
       = l(comment.created_at, format: :short)
-      .comment-up = link_to image_tag('thumb_up25.png'), comment_upvote_path(comment), remote: true
+      - if comment_voted?(comment) == 1 || comment_voted?(comment).nil?
+        .comment-up
+          = link_to image_tag('thumb_up25.png'), comment_upvote_path(comment),
+            remote: true, class: ("opacity4" if comment_voted?(comment) == 1)
       .comment-counter = comment.rating
-      .comment-down = link_to image_tag('thumb_down25.png'), comment_downvote_path(comment), remote: true
+      - if comment_voted?(comment) == -1 || comment_voted?(comment).nil?
+        .comment-down
+          = link_to image_tag('thumb_down25.png'), comment_downvote_path(comment),
+            remote: true, class: ("opacity4" if comment_voted?(comment) == -1)
       .comment-body
         p
           = comment.content
