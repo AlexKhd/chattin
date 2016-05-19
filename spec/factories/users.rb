@@ -1,8 +1,5 @@
 FactoryGirl.define do
   factory :user do
-    identities [
-    	FactoryGirl.build(:facebook)
-    ]
     name 'John Doe'
     sequence(:email) { |n| "person#{n}@example.com" }
     password 'tester'
