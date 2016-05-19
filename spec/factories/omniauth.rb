@@ -1,24 +1,33 @@
 FactoryGirl.define do
-  factory :facebook_auth, class: OmniAuth::AuthHash do
+  factory :facebook_hash, class: OmniAuth::AuthHash do
+		provider 'facebook'
+		uid Faker::Number.number(15)
+    name = Faker::Name.name
+    email = Faker::Internet.email
 
-    transient do
-      id { SecureRandom.random_number(1_000_000_000).to_s }
-      username 'john-doe-fbook'
-      name 'Jonh Doe'
-      email 'john.doe@example.com'
-      token { SecureRandom.urlsafe_base64(100).delete('-_').first(100) }
-      expires_at { SecureRandom.random_number(1.month).seconds.from_now }
-    end
-
-    provider 'facebook'
-    uid { id }
-
-    info do
-      {
-        fbook_name: username,
+		info do
+			{
         email: email,
-        name: name
-      }
-    end
-  end
+				name: name,
+			}
+		end
+
+		credentials do
+			{
+        token: SecureRandom.uuid,
+        expires_at: Faker::Date.forward(2),
+        expires: true
+			}
+		end
+
+		extra do
+			{
+				raw_info: {
+					email: email,
+					id: uid,
+          name: name
+				}
+			}
+		end
+	end
 end

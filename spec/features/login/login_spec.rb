@@ -50,4 +50,13 @@ feature 'user login' do
     visit '/'
     expect(page).to have_link 'Logout'
   end
+
+  scenario "with valid omniauth Facebook" do
+    valid_facebook_login_setup
+    visit '/users/sign_in'
+
+    click_link 'btn_via_facebook'
+
+    expect(page).to have_link("Logout")
+  end
 end

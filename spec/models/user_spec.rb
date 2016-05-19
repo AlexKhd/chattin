@@ -13,41 +13,37 @@ describe User do
   end
 
   describe '.from_omniauth' do
-    subject { User.find_for_oauth facebook_auth }
+    subject { User.find_for_oauth facebook_hash }
 
-    let(:facebook_auth) { create :facebook_auth }
-
-    xit 'returns the user' do
-			expect(User.find_for_oauth(auth_hash).username).to eq(user.username)
-  	end
+    let(:facebook_hash) { create :facebook_hash }
 
     context 'when user is not exists' do
-      xit 'creates new user' do
+      it 'creates new user' do
         expect { subject }.to change(User, :count).by 1
       end
 
-      xit "properly sets user's email" do
+      it "properly sets user's email" do
         user = subject
-        expect(user.email).to eq github_auth.info.email
+        expect(user.email).to eq facebook_hash.info.email
       end
 
-      xit "properly sets user's name" do
+      it "properly sets user's name" do
         user = subject
-        expect(user.name).to eq github_auth.info.name
+        expect(user.name).to eq facebook_hash.info.name
       end
 
-      xit "properly sets user's github_name" do
+      it "properly sets user's facebook_name" do
         user = subject
-        expect(user.github_name).to eq github_auth.info.nickname
+        expect(user.facebook_name).to eq facebook_hash.info.name
       end
     end
 
     context 'when user already exists' do
-      let!(:user) { create :user, provider: 'facebook', uid: facebook_auth.uid }
-
-      xit 'does not create new user' do
-        expect { subject }.not_to change(User, :count)
-      end
+      it "doesn't allow duplicate users" do
+		  	user = User.find_for_oauth(facebook_hash)
+		  	expect { User.find_for_oauth(facebook_hash) }.to_not change(User, :count)
+		  	expect(User.find_for_oauth(facebook_hash)).to eql(user)
+		  end
     end
   end
 end

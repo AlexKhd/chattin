@@ -62,7 +62,8 @@ class User < ActiveRecord::Base
           email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
           password: Devise.friendly_token[0, 20],
           avatar_file_name: auth.info.image,
-          avatar_updated_at: Time.now
+          avatar_updated_at: Time.now,
+          facebook_name: auth.extra.raw_info.name
         )
         user.skip_confirmation!
         user.save!

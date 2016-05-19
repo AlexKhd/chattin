@@ -5,17 +5,18 @@ module OmniauthTestHelper
         provider: 'facebook',
         uid: '9876543221',
         info: {
-          first_name: "Gaius",
-          last_name:  "Baltar",
-          email:      "test@example.com"
+          email: 'test@example.com',
+          name: 'Facebook Name'
         },
         credentials: {
-          token: "123456",
-          expires_at: Time.now + 1.week
+          token: '1234561234',
+          expires_at: Time.now + 1.week,
+          expires: true
         },
         extra: {
           raw_info: {
-            gender: 'male',
+            email: 'test@example.com',
+  					id: '1234561234',
             name: 'Facebook Name'
           }
         }

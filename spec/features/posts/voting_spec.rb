@@ -29,8 +29,8 @@ feature 'user vote' do
   end
 
   scenario 'check negative vote & not allowed to vote twice' do
-    post
     login_as user, scope: :user
+    post
     visit posts_path
     expect(page).to have_css('.counter p', text: '0')
 
