@@ -185,10 +185,9 @@
   }
 }
 
-#add_post {
-  left: 40px;
+#add-post {
   position: relative;
-  width: 95%;
+  min-width: 300px;
 }
 
 .voted_pos {

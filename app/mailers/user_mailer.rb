@@ -3,7 +3,7 @@ class UserMailer < ApplicationMailer
 
   def news_email(user)
     @user = user
-    @url  = 'http://chattin.gq/'
+    @post  = Post.last
     mail(to: "#{@user.name} <#{@user.email}>", subject: 'Новые фотографии',
          template_path: 'user_mailer', template_name: 'news_email')
   end

@@ -106,6 +106,7 @@ class PostsController < ApplicationController
 
     profiles_to_email.each do |profile|
       @user = User.find(profile.id)
+      next if @user == current_user || @user.user?
       UserMailer.news_email(@user).deliver_later
       profile.update_attribute(:news_email_sent_at, Time.now)
     end

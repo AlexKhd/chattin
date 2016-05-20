@@ -1,16 +1,17 @@
 h1 Listing users
-
 table.table.table-striped.table-responsive
   thead
     tr
-      th Name
-      th Email
-      th Role
-      th LastSignIn
-      th SignIn count
-      th
-      th
-      th
+      th.col-md-1 Name
+      th.col-md-3 Email
+      th.col-md-1 Role
+      th.col-md-1 Current IP
+      th.col-md-1 Last IP
+      th.col-md-1 LastSignIn
+      th.col-md-1 SignIn count
+      th.col-md-1
+      th.col-md-1
+      th.col-md-1
 
   tbody
     - @users.each do |user|
@@ -18,6 +19,8 @@ table.table.table-striped.table-responsive
         td = user.name
         td = user.email
         td = user.role
+        td = user.current_sign_in_ip
+        td = user.last_sign_in_ip
         td = user.current_sign_in_at
         td = user.sign_in_count
         td = link_to 'Show', user

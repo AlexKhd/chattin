@@ -1,14 +1,13 @@
-#add_post
-  .row
-    .col-sm-8.col-sm-offset-2
-      h3 =t(:new_post)
-      =simple_form_for @post, html: { class: 'form-horizontal', multipart: true } do |f|
-        .form-group
-          =f.label t(:choose_picture)
-          =f.file_field :image, class: 'btn'
-        .form-group.text-center
-          =f.input :caption, label: t(:description), :input_html => {maxlength: 65, placeholder: t(:type_caption)}
-        .form-group.text-center
-          =f.input :family
-        .form-group.text-center
-          =f.submit t(:load_post), class: 'btn-success'
+#add-post.row
+  .col-sm-8.col-sm-offset-2.col-xs-12
+    h3 = t(:new_post)
+    = simple_form_for @post, html: { class: 'form-horizontal', multipart: true } do |f|
+      .form-group
+        = f.label t(:choose_picture)
+        = f.file_field :image, class: 'btn'
+      .form-group.text-center
+        = f.input :caption, label: t(:description), input_html: {maxlength: 65, placeholder: t(:type_caption)}
+      .form-group.text-center
+        = f.input :family if current_user.family? || current_user.admin?
+      .form-group.text-center
+        = f.submit t(:load_post), class: 'btn-success'

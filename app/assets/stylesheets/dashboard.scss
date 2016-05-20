@@ -106,25 +106,19 @@ div {
   padding: 100px 0;
   text-align: center;
   color: #fff;
-  background: #000 image-url("bg.jpg") no-repeat bottom center scroll;
+  background: #000 image-url('bg.jpg') no-repeat bottom center scroll;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
-}
-
-.intro .intro-body {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.intro .intro-body .brand-heading {
-  font-size: 40px;
-  font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
-}
-
-.intro .intro-body .intro-text {
-  font-size: 18px;
+  .intro-body {
+    display: table-cell;
+    vertical-align: middle;
+    .brand-heading {
+      font-size: 40px;
+      font-family: Lora,'Helvetica Neue',Helvetica,Arial,sans-serif;
+    }
+  }
 }
 
 .alert {
@@ -161,28 +155,22 @@ div {
   margin-left: 20px;
 }
 
-.contact {
-    //display: block;
-}
-
 #contact {
-    //visibility: hidden;
     color: #000;
 }
 
 .navbar-custom {
   background-color: #000; // #8c99a4;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
   margin-bottom: 0;
   text-transform: uppercase;
 //	-webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
 //  -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
 //  transition: background .5s ease-in-out, padding .5s ease-in-out;
-}
-
-.navbar-custom .navbar-brand {
-  font-weight: 700;
+  .navbar-brand {
+    font-weight: 700;
+  }
 }
 
 .navbar-custom .navbar-brand:focus {
@@ -227,62 +215,25 @@ div {
   }
 }
 
-#sidebar {
-  outline: 1px solid #cccc00;
-  float: left;
-  width: 25%;
-  height: 200px;
-  margin-left: 3px;
-}
-
-#pages2 {
-	clear: both;
-	height: 43px;
-	margin: 0 auto;
-  background: #2C7997 image-url('page_rev.png');
-}
-
 footer {
   //outline: 1px solid #cccc00;
   padding: 50px 0;
   height: 120px;
   color: #ccc;
-}
-
-footer p {
-  margin: 0;
-}
-
-footer .btn {
-  margin: 5px 0 15px;
-}
-
-.loginForm {
-  margin: 160px auto 0;
-  width: 280px;
-  color: gray;
-  background-color: blue;
-  border-radius: 15px;
-  padding: 10px;
-}
-
-table.table-striped tr.found td {
-  background-color: blue;
+  p {
+    margin: 0;
+  }
+  .btn {
+    margin: 5px 0 15px;
+  }
 }
 
 table {
   color: #000;
 }
 
-// notices
 #notice {
   color: green;
-}
-
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
 }
 
 #error_explanation {
@@ -317,15 +268,13 @@ table {
 
 #avatar {
   display: inline;
-}
-
-#avatar li {
-  display: inline;
-}
-
-#avatar img {
-  display: inline;
-  border-radius: 50%;
+  li {
+    display: inline;
+  }
+  img {
+    display: inline;
+    border-radius: 50%;
+  }
 }
 
 .prev.disabled {

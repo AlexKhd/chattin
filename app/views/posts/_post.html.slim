@@ -1,17 +1,17 @@
 = div_for post do
   .post-rating
-    = button_to '+', post_upvote_path(post), remote: true, class: (current_user && vote_result(post) == 1 ? @vote_btn_class + " voted_pos" : @vote_btn_class )
+    = button_to '+', post_upvote_path(post), remote: true, class: (current_user && vote_result(post) == 1 ? @vote_btn_class + ' voted_pos' : @vote_btn_class )
     .counter
       p = post.rating
-    = button_to '-', post_downvote_path(post), remote: true, class: (current_user && vote_result(post) == -1 ? @vote_btn_class + " voted_neg" : @vote_btn_class )
+    = button_to '-', post_downvote_path(post), remote: true, class: (current_user && vote_result(post) == -1 ? @vote_btn_class + ' voted_neg' : @vote_btn_class )
   .float-left.who_posted
     = t(:published_by) + ' '
     |
     mark.blue = post.user.name
     = when_posted(post.created_at)
-  = link_to image_tag(post.image.url(:medium), alt: post.caption), post.image.url(:original), popup: ['original_image', 'height=700,width=900'], :target => "_blank"
+  = link_to image_tag(post.image.url(:medium), alt: post.caption), post.image.url(:original), popup: ['original_image', 'height=700,width=900'], target: '_blank'
   .after-post
     p = post.caption
     -if user_signed_in? && current_user.id == post.user_id || user_signed_in? && current_user.email == Rails.application.secrets.admin_email
-      = link_to t(:delete_post), post_path(post), remote: true, method: :delete, class: "btn btn-warning", type: "button", data: { confirm: "#{t(:delete_post)}?" }
-    = link_to t(:read_post), post_path(post), class: "pull-right"
+      = link_to t(:delete), post_path(post), remote: true, method: :delete, class: 'btn btn-warning btn-responsive', type: 'button', data: { confirm: "#{t(:delete_post)}?" }
+    = link_to t(:read_post), post_path(post), class: 'pull-right'

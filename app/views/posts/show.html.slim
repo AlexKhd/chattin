@@ -5,7 +5,7 @@
   .col-sm-12
     .row
       .col-sm-2
-        = @post.user.name ? @post.user.name : "NoName"
+        = @post.user.name
       .first-post.col-sm-8.col-xs-12
         h4 = link_to @post.caption, url_for
         = link_to image_tag(@post.image.url(:medium), alt: @post.caption),
