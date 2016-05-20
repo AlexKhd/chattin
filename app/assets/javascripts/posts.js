@@ -10,7 +10,8 @@ $(document).ready(function () {
 $(document).ready(function () {
   // hide if prev enabled &
   if ( !$( 'li' ).is( '.prev.disabled' ) && ( $( 'ul.pagination' ).length ) ) {
-    $('.first-post').hide();
+    $('.first-post').closest('div[class = "row"]').hide();
+    //$('#divid').parents('div[class^="div-a"]');
   }
 });
 

@@ -17,10 +17,6 @@
   margin: 0 auto;
 }
 
-.posts-wrapper {
-  max-width: 642px;
-}
-
 .post {
   background-color: #444A4F;
   border-color: #0B4376;
@@ -29,9 +25,10 @@
   border-width: 1px;
   margin-bottom: 40px;
   box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.3);
+  color: white;
 }
 
-.post-first {
+.first-post {
   max-width: 642px;
   background-color: #444A4F;
   border-color: #0B4376;
@@ -44,10 +41,6 @@
     padding: 8px 0 12px 8px;
     margin-bottom: 0px;
   }
-}
-
-.image {
-  color: white;
 }
 
 .post img {
@@ -68,11 +61,6 @@
   padding: 40px;
   border: 1px solid #eeefef;
   border-radius: 3px;
-}
-
-.edit-links {
-  //margin-top: 10px;
-  //height: 35px;
 }
 
 .pagination {
@@ -159,10 +147,31 @@
   border-style: solid;
   border-radius: 3px;
   border-width: 1px;
-  //width: 7%;
   color: white;
   text-align: center;
-  margin-left: 15px;
+  img {
+    width: 100%;
+  }
+  .image {
+    border-color: #0B4376;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.3);
+    color: white;
+  }
+  .counter-top-images {
+    display: inline;
+    height: 40px;
+    background:    #acafb1;
+    background:    -webkit-linear-gradient(#acafb1, #0c0c0c);
+    background:    linear-gradient(#acafb1, #0c0c0c);
+    border-radius: 5px;
+    display:       inline-block;
+    width:         30px;
+    height:        25px;
+    font:          normal 700 9px/25px "Calibri", sans-serif;
+    text-shadow:   1px 1px 0 #000;
+  }
 }
 
 #add_post {
@@ -209,6 +218,6 @@
 }
 
 mark.blue {
-  color:#0000A0;
+  color:#8EBACC;
   background: none;
 }

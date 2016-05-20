@@ -1,6 +1,5 @@
 -posts_best.each do |post|
   .image.center-block-
-    .counter
+    .counter-top-images
       p= post.rating
-    =link_to image_tag(post.image.url(:thumb), alt: post.caption), post_path(post)
-    p
+    = link_to image_tag(post.image.url(:thumb), alt: post.caption), post_path(post)

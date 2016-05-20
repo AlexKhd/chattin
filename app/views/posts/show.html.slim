@@ -7,7 +7,7 @@
       .col-sm-2
         = @post.user.name ? @post.user.name : "NoName"
       .col-sm-10
-        .post-first
+        .first-post
           h4 = link_to @post.caption, url_for
           = link_to image_tag(@post.image.url(:medium), alt: @post.caption),
             @post.image.url(:original), popup: ['original_image', 'height=700,width=900']
