@@ -1,8 +1,8 @@
 = div_for comment do
-  .row
-    .col-sm-2.col-xs-2
+ .row
+    .col-sm-2
         = comment.user.name ? comment.user.name : "NoName"
-    .col-sm-10.col-xs-10.max-width670.comment-wrapper
+    .col-sm-8.col-xs-12.comment-wrapper
       = l(comment.created_at, format: :short)
       - if comment_voted?(comment) == 1 || comment_voted?(comment).nil?
         .comment-up

@@ -27,6 +27,9 @@
   margin-bottom: 4px;
   background-color: #CDC9C9;
   padding-top: 2px;
+  img {
+    width: 100%;
+  }
 }
 
 .comment {
@@ -35,10 +38,6 @@
   p {
     // max-width: 640px;
   }
-}
-
-.max-width670 {
-  max-width: 672px;
 }
 
 .comment-counter {

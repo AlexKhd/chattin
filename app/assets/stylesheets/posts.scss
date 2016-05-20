@@ -29,7 +29,6 @@
 }
 
 .first-post {
-  max-width: 642px;
   background-color: #444A4F;
   border-color: #0B4376;
   border-style: solid;
@@ -40,6 +39,9 @@
   h4 {
     padding: 8px 0 12px 8px;
     margin-bottom: 0px;
+  }
+  img {
+    width: 100%;
   }
 }
 
@@ -159,9 +161,11 @@
     box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.3);
     color: white;
   }
+}
+
+@media (min-width: 769px) {
   .counter-top-images {
     display: inline;
-    height: 40px;
     background:    #acafb1;
     background:    -webkit-linear-gradient(#acafb1, #0c0c0c);
     background:    linear-gradient(#acafb1, #0c0c0c);
@@ -171,6 +175,13 @@
     height:        25px;
     font:          normal 700 9px/25px "Calibri", sans-serif;
     text-shadow:   1px 1px 0 #000;
+  }
+}
+
+@media (max-width: 768px) {
+  .counter-top-images {
+    text-shadow:   1px 1px 0 #000;
+    font-family: verdana,arial,helvetica,sans-serif;
   }
 }
 

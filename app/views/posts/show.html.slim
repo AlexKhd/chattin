@@ -6,14 +6,13 @@
     .row
       .col-sm-2
         = @post.user.name ? @post.user.name : "NoName"
-      .col-sm-10
-        .first-post
-          h4 = link_to @post.caption, url_for
-          = link_to image_tag(@post.image.url(:medium), alt: @post.caption),
-            @post.image.url(:original), popup: ['original_image', 'height=700,width=900']
+      .first-post.col-sm-8.col-xs-12
+        h4 = link_to @post.caption, url_for
+        = link_to image_tag(@post.image.url(:medium), alt: @post.caption),
+          @post.image.url(:original), popup: ['original_image', 'height=700,width=900']
     br
-      - @comments.each do |comment|
-        = render comment
+    - @comments.each do |comment|
+      = render comment
     br
   .col-sm-12.text-center
     = will_paginate(@comments, renderer: 'BootstrapPagination::Rails',
