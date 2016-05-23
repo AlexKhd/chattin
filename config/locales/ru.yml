@@ -17,16 +17,16 @@ ru:
   SlideShow: Слайдшоу
   type_caption: Укажите название
   load_post: Загрузить
-  Login: Войти
-  Logout: Выйти
+  login: Войти
+  logout: Выйти
   Name: Имя
   Chat: Чат
   email_to_author: обратная связь
   Posts: Фотографии
   published_by: Создал
-  new_post: Добавить фото
+  new_post: Создать тему
   delete: Удалить
-  delete_post: Удалить фото
+  delete_post: Удалить пост
   delete_comment: Удалить комментарий
   Up: Вверх
   log_in: Вход
@@ -37,7 +37,8 @@ ru:
   password: Пароль
   password_confirmation: Подтверждение пароля
   password_mismatch: Пароли не совпадают
-  passw_six: 'Длина пароля не менее 6 символов'
+  passw_six: Длина пароля не менее 6 символов
+  post_created: Новая тема создана успешно!
   user_three: 'Не менее 3 символов'
   user_exists: Такое имя уже есть
   incorrect_email: Укажите корректный e-mail

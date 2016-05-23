@@ -1,9 +1,9 @@
 = div_for post do
   .post-rating
-    = button_to '+', post_upvote_path(post), remote: true, class: (current_user && vote_result(post) == 1 ? @vote_btn_class + ' voted_pos' : @vote_btn_class )
+    = button_to '+', upvote_post_path(post), remote: true, class: (current_user && current_user.voted_for_post?(post) == 1 ? @vote_btn_class + ' voted_pos' : @vote_btn_class )
     .counter
       p = post.rating
-    = button_to '-', post_downvote_path(post), remote: true, class: (current_user && vote_result(post) == -1 ? @vote_btn_class + ' voted_neg' : @vote_btn_class )
+    = button_to '-', downvote_post_path(post), remote: true, class: (current_user && current_user.voted_for_post?(post) == -1 ? @vote_btn_class + ' voted_neg' : @vote_btn_class )
   .float-left.who_posted
     = t(:published_by) + ' '
     |
@@ -13,5 +13,5 @@
   .after-post
     p = post.caption
     -if user_signed_in? && current_user.id == post.user_id || user_signed_in? && current_user.email == Rails.application.secrets.admin_email
-      = link_to t(:delete), post_path(post), remote: true, method: :delete, class: 'btn btn-warning btn-responsive', type: 'button', data: { confirm: "#{t(:delete_post)}?" }
+      = link_to t(:delete_post), post_path(post), remote: true, method: :delete, class: 'btn btn-warning btn-responsive', type: 'button', data: { confirm: "#{t(:delete_post)}?" }
     = link_to t(:read_post), post_path(post), class: 'pull-right'

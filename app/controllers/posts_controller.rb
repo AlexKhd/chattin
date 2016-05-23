@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   include PostsHelper
   attr_accessor :vote_btn_class
 
-  before_action :set_post, only: [:destroy, :show]
+  before_action :set_post, only: [:destroy, :show, :upvote, :downvote]
   before_action :authenticate_user!, except: [:index, :upvote, :downvote, :show]
   before_action :get_vote_btn_class
   after_action :send_news_email, only: [:create]
@@ -23,45 +23,32 @@ class PostsController < ApplicationController
     end
   end
 
-  def new
-    @post = current_user.posts.new
-  end
-
   def upvote
-    if current_user
-      @post = Post.friendly.find(params[:post_id])
-      profile = Profile.find(@post.user_id)
-      unless vote_result(@post) # user isn't allowed to vote twice
-        @vote_post = current_user.vote_posts.build(value: 1, post: @post)
-        @vote_post.save
-        @post.upvote(profile)
-      end
-      respond_with(@post)
+    unless current_user.nil? || current_user.voted_for_post?(@post)
+      @post.upvote current_user, @post
     else
-      # redirect_to new_user_session_path, notice: 'Register first.'
-      render js: "window.location = '#{new_user_session_path}';"
+      head :ok, content_type: "text/html" if current_user
+      render js: "window.location = '#{new_user_session_path}';" unless current_user
     end
   end
 
   def downvote
-    if current_user
-      @post = Post.friendly.find(params[:post_id])
-      profile = Profile.find(@post.user_id)
-      unless vote_result(@post)
-        @vote_post = current_user.vote_posts.build(value: -1, post: @post)
-        @vote_post.save
-        @post.downvote(profile)
-      end
-      respond_with(@post)
+    unless current_user.nil? || current_user.voted_for_post?(@post)
+      @post.downvote current_user, @post
     else
-      render js: "window.location = '#{new_user_session_path}';"
+      head :ok, content_type: "text/html" if current_user
+      render js: "window.location = '#{new_user_session_path}';" unless current_user
     end
+  end
+
+  def new
+    @post = current_user.posts.new
   end
 
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      redirect_to posts_path
+      redirect_to @post, notice: t(:post_created)
     else
       redirect_to new_post_path
     end
@@ -69,7 +56,6 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    respond_with @task
   end
 
   def slider
@@ -107,7 +93,7 @@ class PostsController < ApplicationController
     profiles_to_email.each do |profile|
       @user = User.find(profile.id)
       next if @user == current_user || @user.user?
-      UserMailer.news_email(@user).deliver_later
+      UserMailer.news_email(@user, Post.last).deliver_later
       profile.update_attribute(:news_email_sent_at, Time.now)
     end
   end

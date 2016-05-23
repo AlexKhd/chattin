@@ -2,11 +2,12 @@ require "rails_helper"
 
 RSpec.describe UserMailer, type: :mailer do
 
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user)    { FactoryGirl.create(:user) }
+  let(:post)    { FactoryGirl.create(:post, user: user) }
 
   before(:each) do
     ActionMailer::Base.deliveries = []
-    UserMailer.news_email(user).deliver
+    UserMailer.news_email(user, post).deliver
   end
 
   after(:each) do

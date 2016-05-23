@@ -1,22 +1,20 @@
 #chatctn
-  .container
-  	.content
-  	  .row
-  		.col-md-9
-  		  -if notice
-  		    .notice = notice
-  		  -elsif alert
-  		    .alert = alert
-          -if Rails.env.production?
-            #chat.well data-uri="#{request.host}:3001/websocket"
-          -else
-          	#chat.well data-uri="#{request.host}:3000/websocket"
-          .form-inline.well
-        		fieldset
-        	    input#message type="text" class=""
-            		button#send.btn.btn-primary Send
-        .col-md-3.opacity5
-          .well.sidebar-nav
-          	h5 online
-          	ul.nav.nav-list#user-list
-          	  li.nav-header Active
+  .row
+    .col-md-9.col-sm-9
+      -if notice
+        .notice = notice
+      -elsif alert
+        .alert = alert
+      -if Rails.env.production?
+        #chat.well data-uri="#{request.host}:3001/websocket"
+      -else
+      	#chat.well data-uri="#{request.host}:3000/websocket"
+      .form-inline.well
+    		fieldset
+    	    input#message type="text" class=""
+        		button#send.btn.btn-primary Send
+    .col-md-3.col-sm-3.opacity5
+      .well.sidebar-nav
+      	h5 online
+      	ul.nav.nav-list#user-list
+      	  li.nav-header Active

@@ -96,4 +96,8 @@ class User < ActiveRecord::Base
       profile = Profile.last
       profile.update_attribute(:rating, 0)
   end
+
+  def voted_for_post?(post)
+    self.vote_posts.find_by_post_id(post.id).value if self.vote_posts.find_by_post_id(post.id)
+  end
 end

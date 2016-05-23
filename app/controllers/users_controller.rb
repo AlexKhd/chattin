@@ -73,9 +73,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
-
   def destroy
     # authorize! :delete, @user
     @user.destroy
@@ -88,8 +85,7 @@ class UsersController < ApplicationController
   def checkname
     @user = User.search(params[:name])
     respond_to do |format|
-      format.json {render json: {name_exists: @user.present?}} #sir Deep suggestion to return true or false for email_exists or the code below
-   # format.json {render :json => @user} #this will output null if email is not in the database
+      format.json {render json: {name_exists: @user.present?}}
   end
 end
 

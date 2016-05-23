@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :post do
-    caption 'A caption'
+    caption Faker::Lorem.sentence
     image do
       Rack::Test::UploadedFile.new(Rails.root.join(
                                      'spec',

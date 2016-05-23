@@ -11,8 +11,10 @@ Rails.application.routes.draw do
   resources :users, :chats, :photos
 
   resources :posts do
-    post 'upvote'
-    post 'downvote'
+    member do
+      post 'upvote', to: "posts#upvote"
+      post 'downvote', to: "posts#downvote"
+    end
   end
 
   resources :comments do

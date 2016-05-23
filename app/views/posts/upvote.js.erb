@@ -1,5 +1,1 @@
-<% if current_user %>
-  $('div#<%= dom_id(@post) %>').replaceWith('<%= j render "post", post: @post %>');
-<% else %>
-  alert("<%= "#{t(:login_first)}" %>")
-<% end %>
+$('div#<%= dom_id(@post) %>').replaceWith('<%= j render "post", post: @post %>');

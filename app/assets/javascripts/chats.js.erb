@@ -1,0 +1,36 @@
+if (window.location.pathname == '/chats') {
+  $(document).ready(function () {
+    var video = document.querySelector("#videoElement");
+
+    navigator.getUserMedia = navigator.getUserMedia ||
+      navigator.webkitGetUserMedia || navigator.mozGetUserMedia ||
+      navigator.msGetUserMedia || navigator.oGetUserMedia;
+
+    if (navigator.getUserMedia) {
+        navigator.getUserMedia({video: true}, handleVideo, videoError);
+    }
+
+    function handleVideo(stream) {
+        video.src = window.URL.createObjectURL(stream);
+        $('#cam-status').html('Camera enabled');
+    }
+
+    function videoError(e) {
+        $('#cam-status').html('Camera error');
+    }
+
+    var timerId = setInterval(function() {
+      console.log( "tic" );
+      if (handleVideo) {
+        $('#cam-status').html('Camera disabled');
+      } else {
+        $('#cam-status').html('Camera eisabled');
+      };
+    }, 5000);
+
+    setTimeout(function() {
+      clearInterval(timerId);
+      console.log( 'stop' );
+    }, 35000);
+  });
+};

@@ -7,5 +7,6 @@ module NewPost
     fill_in 'post_caption', with: caption
 
     find('input[name="commit"]').trigger('click')
+    expect(page).to have_selector('.first-post h4', text: caption.upcase)
   end
 end

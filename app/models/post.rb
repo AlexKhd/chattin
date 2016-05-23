@@ -20,13 +20,19 @@ class Post < ActiveRecord::Base
   has_many :vote_posts, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  def upvote(profile)
+  def upvote(current_user, post)
+    vote_post = current_user.vote_posts.build(value: 1, post: post)
+    vote_post.save
     update_attribute(:rating, self.rating + 1)
+    profile = Profile.find(post.user_id)
     profile.update_attribute(:rating, profile.rating + 1)
   end
 
-  def downvote(profile)
+  def downvote(current_user, post)
+    vote_post = current_user.vote_posts.build(value: -1, post: post)
+    vote_post.save
     update_attribute(:rating, self.rating - 1)
+    profile = Profile.find(post.user_id)
     profile.update_attribute(:rating, profile.rating - 1)
   end
 
