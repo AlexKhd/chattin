@@ -99,3 +99,8 @@ en:
     user_profile: User profile
     City: City
     Rating: Rating
+  posts:
+    comments_count:
+      zero: no comments yet
+      one: 1 comment
+      other: "%{count} comments"

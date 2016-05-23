@@ -78,3 +78,9 @@ ru:
     user_profile: Личный кабинет
     City: Город
     Rating: Рейтинг
+  posts:
+    comments_count:
+      zero: нет комментариев
+      one: 1 комментарий
+      few: "%{count} комментария"
+      many: "%{count} комментариев"

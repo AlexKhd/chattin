@@ -11,7 +11,7 @@
     = when_posted(post.created_at)
   = link_to image_tag(post.image.url(:medium), alt: post.caption), post.image.url(:original), popup: ['original_image', 'height=700,width=900'], target: '_blank'
   .after-post
-    p = post.caption
+    p = post.caption + ' (' + t('posts.comments_count', count: post.comments.count) + ')'
     -if user_signed_in? && current_user.id == post.user_id || user_signed_in? && current_user.email == Rails.application.secrets.admin_email
       = link_to t(:delete_post), post_path(post), remote: true, method: :delete, class: 'btn btn-warning btn-responsive', type: 'button', data: { confirm: "#{t(:delete_post)}?" }
     = link_to t(:read_post), post_path(post), class: 'pull-right'
