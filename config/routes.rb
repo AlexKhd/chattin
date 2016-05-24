@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   post '/checkname', to: 'users#checkname'
   # get "users/:id", to: "profiles#show", as: "profile"
-  resources :profiles, only: [:show, :edit, :index]
+  resources :profiles, only: [:show, :edit]
   resources :users, :chats, :photos
 
   resources :posts do
@@ -37,8 +37,10 @@ Rails.application.routes.draw do
 
   root to: 'dashboard#index'
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  namespace :admin do
+    resources :profiles, only: [:index]
+  end
+
   get 'contact', to: 'store#contact'
   post 'contact_send', to: 'store#contact_send'
 

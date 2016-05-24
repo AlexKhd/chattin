@@ -40,7 +40,6 @@ html {
 }
 
 #wrapper {
-  // left: 15px;
   position: relative;
   top: 130px;
   width: 95%;
@@ -99,7 +98,6 @@ div {
 /* Header */
 
 .intro {
-  //outline: 1px solid #cc0000;
   display: table;
   width: 100%;
   height: 100%;
@@ -199,10 +197,18 @@ div {
   transition: background .3s ease-in-out;
 }
 
-.navbar-custom .nav li a:hover {
+.navbar-custom .nav li {
+  a:hover {
   outline: 0;
   color: rgba(255,255,255,.8);
   background-color: transparent;
+  }
+  a:focus {
+    background-color: transparent;
+  }
+  ul li a:hover {
+    color: #00ff00;
+  }
 }
 
 @media (min-width: 768px) {
@@ -216,7 +222,6 @@ div {
 }
 
 footer {
-  //outline: 1px solid #cccc00;
   padding: 50px 0;
   height: 120px;
   color: #ccc;
