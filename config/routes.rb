@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     get 'downvote'
   end
 
+  resources :comments, only: [:show, :edit, :update]
+
   resources :chats
 
   get 'slideshow', to: 'posts#slider'
@@ -29,7 +31,9 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments, only: [:index, :new, :create, :destroy]
   end
-  resources :comments, only: [:show, :edit, :update]
+
+  resources :postmans
+  post 'sender/:id', to: 'postmans#sender', as: 'sender'
 
   get 'photo/index'
 
@@ -41,7 +45,6 @@ Rails.application.routes.draw do
     resources :profiles, only: [:index]
   end
 
-  get 'contact', to: 'store#contact'
   post 'contact_send', to: 'store#contact_send'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

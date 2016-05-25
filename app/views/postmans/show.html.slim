@@ -1,0 +1,10 @@
+.container
+  .col-sm-10.col-sm-offset-1.col-lg-8.col-lg-offset-2
+    h4.text-center Mail template
+    .col-sm-8
+      p = 'Description: ' + @mailtemplate.description
+      p = 'Subject: ' + @mailtemplate.subject
+      p = 'Body: ' + @mailtemplate.body
+      p = 'Recipient: ' + = @mailtemplate.recipient
+
+= link_to 'Back', :back
