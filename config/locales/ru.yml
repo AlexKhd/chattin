@@ -52,15 +52,15 @@ ru:
   Didnt_receive_confirmation_instructions?: Не получили письмо с подтверждением регистрации?
   errors:
     messages:
-      already_confirmed: "was already confirmed, please try signing in"
+      already_confirmed: 'was already confirmed, please try signing in'
       confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
-      expired: "has expired, please request a new one"
-      not_found: "not found"
-      not_locked: "was not locked"
+      expired: 'has expired, please request a new one'
+      not_found: 'not found'
+      not_locked: 'was not locked'
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
-  forgot_your_password?: "Забыли пароль?"
+  forgot_your_password?: 'Забыли пароль?'
   will_paginate:
     previous_label: Предыдущая
     next_label: Следующая
@@ -69,8 +69,8 @@ ru:
       default: "%H:%M"
   registration:
     text: "Чтобы оставить комментарий, необходимо %{to_login} или %{to_register}."
-    to_login: "войти"
-    to_register: "зарегистрироваться"
+    to_login: 'войти'
+    to_register: 'зарегистрироваться'
     login: Вход
     register: Регистрация
     name: Имя
@@ -81,6 +81,6 @@ ru:
   posts:
     comments_count:
       zero: нет комментариев
-      one: 1 комментарий
+      one: "%{count} комментарий"
       few: "%{count} комментария"
       many: "%{count} комментариев"

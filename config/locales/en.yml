@@ -73,15 +73,15 @@ en:
   Didnt_receive_confirmation_instructions?: Didn't receive confirmation instructions?
   errors:
     messages:
-      already_confirmed: "was already confirmed, please try signing in"
+      already_confirmed: 'was already confirmed, please try signing in'
       confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
-      expired: "has expired, please request a new one"
-      not_found: "not found"
-      not_locked: "was not locked"
+      expired: 'has expired, please request a new one'
+      not_found: 'not found'
+      not_locked: 'was not locked'
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
-  forgot_your_password?: "Forgot your password?"
+  forgot_your_password?: 'Forgot your password?'
   will_paginate:
     previous_label: Previous
     next_label: Next
@@ -90,8 +90,8 @@ en:
       default: "%H:%M"
   registration:
     text: "You need to %{to_login} or %{to_register} to leave a comment"
-    to_login: "login"
-    to_register: "register"
+    to_login: 'login'
+    to_register: 'register'
     login: Log in
     registration: Registration
     name: Name

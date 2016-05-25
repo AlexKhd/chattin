@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
     @comment.user_id = current_user.id
     @comment.save!
-    redirect_to(:back)
+    redirect_to :back
 
     # respond_to do |format|
     #  if @comment.save
@@ -52,7 +52,7 @@ class CommentsController < ApplicationController
   def destroy
     @post = Post.friendly.find(params[:post_id])
     @comment.destroy
-    redirect_to post_path(@post)
+    redirect_to :back # TODO redirect in case of jump to prev page
     # respond_to do |format|
     #  format.html { redirect_to comments_url, notice: 'Comment destroyed.' }
     #  format.json { head :no_content }
