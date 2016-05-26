@@ -4,7 +4,7 @@ require 'support/feature_helpers/new_post'
 include NewPost
 
 feature 'posts' do
-  let(:caption)     { Faker::Lorem.sentence }
+  let(:caption)     { Faker::Lorem.sentence(3) }
   let(:user)        { FactoryGirl.create(:user, :confirmed) }
 
   scenario 'adding new photo' do

@@ -1,14 +1,15 @@
 h4 = 'Edit template ' + @mailtemplate.description
 
-= simple_form_for @mailtemplate, url: postman_path, html: { method: :patch } do |f|
+= simple_form_for @mailtemplate, url: admin_postman_path do |f|
   = f.input :description
   = f.input :subject
-  = f.text_area :body
+  = f.input :body, as: :text
+  br
   = f.select(:recipient, options_from_collection_for_select(User.all, :id, :email))
   = f.input :locale
   = f.input :handler
   = f.input :format
 
-  = f.submit 'Save template', class: 'btn'
+  = f.submit 'Save template', class: 'btn btn-success'
   p
 = link_to 'Back', :back

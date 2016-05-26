@@ -6,7 +6,7 @@
         = f.label t(:choose_picture)
         = f.file_field :image, class: 'btn'
       .form-group.text-center
-        = f.input :caption, label: t(:description), input_html: {maxlength: 65, placeholder: t(:type_caption)}
+        = f.input :caption, label: t(:description), input_html: {maxlength: 90, placeholder: t(:type_caption)}
       .form-group.text-center
         = f.input :family if current_user.family? || current_user.admin?
       .form-group.text-center

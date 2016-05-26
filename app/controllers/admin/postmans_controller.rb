@@ -1,7 +1,7 @@
-class PostmansController < ApplicationController
+class Admin::PostmansController < ApplicationController
 
   before_action :set_template, only: [:destroy, :show, :edit, :update, :sender]
-  before_action :authenticate_user!
+  before_action :check_if_admin
 
   def index
     @mailtemplates = MailTemplate.all
@@ -15,7 +15,7 @@ class PostmansController < ApplicationController
 
   def update
     if @mailtemplate.update(template_params)
-			redirect_to postmans_path, notice: 'Template updated!'
+			redirect_to admin_postmans_path, notice: 'Template updated!'
 		else
 			render 'edit'
 		end
@@ -38,15 +38,16 @@ class PostmansController < ApplicationController
   def create
     @mailtemplate = MailTemplate.new(template_params)
     if @mailtemplate.save
-      redirect_to postmans_path, notice: 'Template saved!'
+      redirect_to admin_postmans_path, notice: 'Template saved!'
     else
+      flash[:alert] = 'U got an error!'
       render 'new'
     end
   end
 
   def destroy
     @mailtemplate.destroy
-		redirect_to postmans_path, notice: 'Template deleted!'
+		redirect_to admin_postmans_path, notice: 'Template deleted!'
   end
 
   private

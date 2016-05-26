@@ -32,9 +32,6 @@ Rails.application.routes.draw do
     resources :comments, only: [:index, :new, :create, :destroy]
   end
 
-  resources :postmans
-  post 'sender/:id', to: 'postmans#sender', as: 'sender'
-
   get 'photo/index'
 
   get 'dashboard/index'
@@ -43,6 +40,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :profiles, only: [:index]
+    resources :postmans
+    post 'sender/:id', to: 'postmans#sender', as: 'sender'
   end
 
   post 'contact_send', to: 'store#contact_send'

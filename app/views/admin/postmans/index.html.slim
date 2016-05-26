@@ -1,0 +1,24 @@
+table.table.table-striped
+  thead
+    tr
+      th Description
+      th Subject
+      th Body
+      th Recipient
+      th
+      th
+      th
+      th
+  tbody
+    - @mailtemplates.each do |template|
+      tr
+        td = template.description
+        td = template.subject
+        td = template.body
+        td = template.recipient
+        td = link_to 'Show', admin_postman_path(template)
+        td = link_to 'Edit', edit_admin_postman_path(template)
+        td = link_to 'Destroy', admin_postman_path(template), data: {confirm: 'Are you sure?'}, method: :delete
+        td = link_to 'Send', admin_sender_path(template), method: :post
+
+= button_to 'New Template', new_admin_postman_path, class: 'btn-success', method: :get

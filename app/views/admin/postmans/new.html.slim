@@ -1,0 +1,15 @@
+h4 New Template
+
+= simple_form_for @mailtemplate, url: admin_postmans_path do |f|
+  = f.input :description
+  = f.input :subject
+  = f.input :body, as: :text
+  br
+  = f.select(:recipient, options_from_collection_for_select(User.all, :id, :email))
+  = f.input :locale
+  = f.input :handler
+  = f.input :format
+
+  = f.submit 'Save template', class: 'btn btn-success'
+  p
+= link_to 'Back', :back
