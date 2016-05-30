@@ -24,6 +24,7 @@ gem 'simple_form'
 gem 'websocket-rails'
 gem 'faye-websocket', '0.10.0'
 gem 'friendly_id', '~> 5.1.0'
+gem 'react-rails', github: 'reactjs/react-rails', branch: 'master'
 
 group :development, :test do
   gem 'byebug'
@@ -48,6 +49,7 @@ group :test do
   gem 'database_cleaner', '~> 1.5'
   gem 'factory_girl_rails'
   gem 'rspec-collection_matchers'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :production do

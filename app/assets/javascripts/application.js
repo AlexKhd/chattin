@@ -15,6 +15,10 @@
 //= require jquery-ui
 //= require bootstrap-sprockets
 //= require websocket_rails/main
+//= require es5-shim
+//= require react
+//= require react_ujs
+//= require components
 //= require_tree .
 
 function scrdown() {

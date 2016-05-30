@@ -50,6 +50,13 @@ RSpec.configure do |config|
   end
 end
 
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :active_record
+  end
+end
+
 def save_timestamped_screenshot(page, meta)
   filename = File.basename(meta[:file_path])
   line_number = meta[:line_number]

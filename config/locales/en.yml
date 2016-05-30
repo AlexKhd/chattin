@@ -96,7 +96,7 @@ en:
     registration: Registration
     name: Name
   profile:
-    user_profile: User profile
+    user_profile: Your profile
     City: City
     Rating: Rating
   posts:

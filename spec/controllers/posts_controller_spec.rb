@@ -26,13 +26,6 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 
-  describe "GET edit" do
-    xit "assigns the requested post as @post" do
-      get :edit, { id: post.id }, valid_attributes
-      expect(assigns(:post)).to eq(post)
-    end
-  end
-
   describe "DELETE destroy" do
     it "destroys the requested post" do
       post = Post.create! valid_attributes
