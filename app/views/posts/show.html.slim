@@ -11,11 +11,11 @@
         = link_to image_tag(@post.image.url(:medium), alt: @post.caption),
           @post.image.url(:original), popup: ['original_image', 'height=700,width=900']
     br
-    - @comments.each do |comment|
-      = render comment
+    = render 'comments/comment'
     br
   .col-sm-12.text-center
     = will_paginate(@comments, renderer: 'BootstrapPagination::Rails',
       inner_window: 2, outer_window: 1)
 = render partial: 'comments/new'
+= link_to '', '#page-top', id: 'back-to-top-link', class: 'height0'
 br

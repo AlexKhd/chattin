@@ -1,4 +1,4 @@
-= div_for comment do
+- @comments.each do |comment|
  .row
     .col-sm-2
         = comment.user.name ? comment.user.name : "NoName"

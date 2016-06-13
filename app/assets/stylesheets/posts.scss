@@ -231,3 +231,19 @@ mark.blue {
   color:#8EBACC;
   background: none;
 }
+
+#back-to-top-link {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-image: image-url('arrow_green_up.png');
+  border-radius: 25px;
+  transition: opacity ease 0.5s;
+  -moz-transition: opacity 0.5s linear;
+}
+
+#back-to-top-link:hover {
+  background-image: image-url('arrow_gold_up.png');
+}
