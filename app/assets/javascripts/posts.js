@@ -31,6 +31,7 @@ $(document).ready(function () {
         $('#back-to-top-link').removeClass('height0')
         $('#back-to-top-link').css('opacity', '1')
         $('#back-to-top-link').blur()
+        readyToClick();
       }
     } else {
       if ($('#back-to-top-link').hasClass('height0')) {
@@ -45,7 +46,7 @@ $(document).ready(function () {
   });
 });
 
-$(document).ready(function () {
+readyToClick = function() {
   var body = $("body, html");
   var top = body.scrollTop();
   if(top !=0) {
@@ -57,4 +58,4 @@ $(document).ready(function () {
       return false;
     });
   };
-});
+};
