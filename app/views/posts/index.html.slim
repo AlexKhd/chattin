@@ -3,6 +3,8 @@
     p = link_to t(:new_post), new_post_path, class: "btn btn-success btn-responsive", type: "button"
     -if current_user && current_user.admin?
       p = link_to t(:SlideShow), slideshow_path, class: "page-scroll btn btn-success", type: "button"
+    #slider-mini
+      p yyyyy
   .col-md-7.col-sm-7.col-xs-9
     -@posts = @posts.paginate(page: params[:page], per_page: 5).order('id DESC')
     = will_paginate(@posts, renderer: 'BootstrapPagination::Rails')

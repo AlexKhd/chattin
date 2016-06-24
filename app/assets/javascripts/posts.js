@@ -30,7 +30,9 @@ $(document).ready(function () {
       if ($('#back-to-top-link').hasClass('height0')) {
         $('#back-to-top-link').removeClass('height0')
         $('#back-to-top-link').css('opacity', '1')
-        $('#back-to-top-link').blur()
+        if ($('#back-to-top-link').is(":focus")) {
+          $('#back-to-top-link').blur()
+        }
         readyToClick();
       }
     } else {
