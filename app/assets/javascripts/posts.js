@@ -1,3 +1,58 @@
+// slideshow on posts index page
+var sliderMini = function() {
+
+  var delay = 5000; // time delay of slider
+  var reel = $('#slideshow-reel');
+  var slideWidth = $('#slideshow').width();
+  var slidesWidth = $('#slideshow-reel .slide').length * slideWidth + 3;
+  reel.width(slidesWidth);
+  $('#slideshow').on('click', function(e) {
+    nextSlide();
+  });
+
+  nextSlide = function() {
+    var currLeft = $('#slideshow-reel').position().left;
+    var slideWidth = $('#slideshow').width();
+    if (slidesWidth + currLeft > slideWidth*2) {
+      $('#slideshow-reel').animate({
+        left: currLeft - slideWidth
+      }, 700)
+    } else {
+      $('#slideshow-reel').animate({
+        left: 0
+      }, 700)
+    }
+  };
+
+  // initialize slider
+  moveImages = setInterval(function() {
+    nextSlide();
+  }, delay);
+};
+
+$(document).ready(function () {
+  if (window.location.pathname == '/posts') {
+    if ($(window).width() > 750) {
+      console.log($(window).width());
+      $('#slideshow-container').show();
+      sliderMini();
+    };
+  };
+});
+
+$(document).ready(function () {
+  if (window.location.pathname == '/posts') {
+    window.onresize = function() {
+      if ($(window).width() > 750) {
+        $('#slideshow-container').show();
+      } else {
+        $('#slideshow-container').hide();
+      };
+    };
+  };
+});
+
+// remove post from 2nd page & others
 $(document).ready(function () {
   if ( !$( 'li' ).is( '.prev.disabled' ) && ( $( 'ul.pagination' ).length ) ) {
     $('.first-post').closest('div[class = "row"]').hide();
