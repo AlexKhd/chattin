@@ -27,7 +27,7 @@ function scrdown() {
       var scrollHeight = elm.scrollTop() + elm.height();
       elm.scrollTop(0);
       $('#chat').scrollTop(scrollHeight);
-};
+}
 
 $(document).ready(function () {  // auto scroll down chat field after message sent
   $('#send').bind('click', function(){
@@ -36,10 +36,10 @@ $(document).ready(function () {  // auto scroll down chat field after message se
 });
 
 $(window).scroll(function() {
-    if ($(".navbar").offset().top > 50) {
-        $(".navbar-fixed-top").addClass("top-nav-collapse");
+    if ($('.navbar').offset().top > 50) {
+        $('.navbar-fixed-top').addClass('top-nav-collapse');
     } else {
-        $(".navbar-fixed-top").removeClass("top-nav-collapse");
+        $('.navbar-fixed-top').removeClass('top-nav-collapse');
     }
 });
 

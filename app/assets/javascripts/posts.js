@@ -1,7 +1,7 @@
 // slideshow on posts index page
 var sliderMini = function() {
 
-  var delay = 5000; // time delay of slider
+  var delay = 5000; // slideshow delay
   var reel = $('#slideshow-reel');
   var slideWidth = $('#slideshow').width();
   var slidesWidth = $('#slideshow-reel .slide').length * slideWidth + 3;
