@@ -17,6 +17,7 @@
 !/log/.keep
 /tmp
 /spec/support/screenshots/*
+/.send
 
 # Ignore application configuration
 /config/database.yml

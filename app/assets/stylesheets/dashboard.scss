@@ -14,6 +14,7 @@ body {
   -moz-transition: background-color 6s ease;
   -o-transition: background-color 6s ease;
   transition: background-color 6s ease;
+  background: #000 image-url('img-noise.png') repeat bottom center scroll;
 }
 
 html {
@@ -97,6 +98,7 @@ div {
   height: 100%;
   padding: 100px 0;
   background: #000 image-url('bg.jpg') no-repeat bottom center scroll;
+  background-attachment: fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -152,11 +154,11 @@ div {
 
 .navbar {
   .navbar-right {
-    background-color: rgba(255, 255, 255, 0.6);
     a {
     color: #fff;
     font-family: cursive;
-    font-size: 14px;
+    font-size: 16px;
+    text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
     }
   }
   ul.dropdown-menu {
